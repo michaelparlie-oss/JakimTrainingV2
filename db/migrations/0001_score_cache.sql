@@ -1,0 +1,1 @@
+ALTER TABLE `session_match` ADD `score_key` text;

@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Keep Netlify's secret scanner from flagging the plan JSON's numbers; real secrets live only in site env vars.
+  SECRETS_SCAN_OMIT_PATHS = "data/*,db/migrations.generated.ts"
+
+[functions]
+  node_bundler = "esbuild"

@@ -1,0 +1,21 @@
+/** Plain-English explanations for every term the UI uses (brief §10: no jargon without a tap-to-explain). */
+export const GLOSSARY: Record<string, string> = {
+  HR: "Heart rate in beats per minute (bpm), from your Apple Watch. On easy runs it is the main target: keep it under the top of the range, even if that means walking.",
+  pace: "Minutes and seconds per kilometre (m:ss /km). Lower is faster.",
+  RPE: "Rate of perceived exertion: how hard it feels from 1 (very easy) to 10 (all-out). In lifting, RPE 7 means you could do about 3 more reps; RPE 8 means about 2.",
+  zone: "A target range of pace and heart rate for a type of running. Each zone is worked out from your latest test result.",
+  deload: "A lighter week (less running, half the strength sets) so your body can absorb the training. Planned every 3–4 weeks.",
+  strides: "Short, smooth accelerations of about 20 seconds at roughly 85–90% effort, never a sprint. Walk 40–60 seconds between them.",
+  "warm-up": "Easy running before the hard part, followed by drills (leg swings, walking lunges, A-skips, butt kicks).",
+  "cool-down": "Easy running after the hard part to finish relaxed.",
+  rep: "One hard repetition in an interval session, for example one of 3 × 2 km.",
+  recovery: "The easy jog or walk between reps. Start the next rep when HR is under about 150.",
+  MP: "Goal marathon pace: the pace that gets you to the finish in your goal time.",
+  HMP: "Half-marathon pace: the pace you aim to hold for 21.1 km.",
+  "long run": "The weekly long, easy run that builds endurance. Heart rate is the target, not pace.",
+  quality: "A harder session (tempo, intervals, race pace). Pace is the target; heart rate is a ceiling.",
+  checkpoint: "A race or time trial that measures your fitness. The result resets your pace zones.",
+  spike: "A run more than 10% longer than your longest run in the previous 30 days. A 2025 study of about 5,200 runners (Frandsen et al., British Journal of Sports Medicine) linked such jumps to more overuse injuries.",
+  "moving time": "Time your watch counted you as moving. Stops at traffic lights are left out.",
+  sets: "A set is a group of reps done without resting. 3 × 8 means 3 sets of 8 reps.",
+};

@@ -1,0 +1,7601 @@
+{
+ "meta": {
+  "athlete": "Mike",
+  "timezone": "Asia/Jakarta",
+  "units": "metric",
+  "created": "2026-11-09",
+  "version": 1,
+  "goal_race": {
+   "name": "JAKIM full marathon (Jakarta International Marathon)",
+   "date": "2027-06-13",
+   "distance_km": 42.195,
+   "goal_time": "4:59:00",
+   "goal_pace_s_per_km": 425
+  },
+  "tune_up_race": {
+   "name": "Astra Half Marathon",
+   "date": "2026-11-29",
+   "location": "Astra Biz Center, BSD",
+   "goal": "sub-2:40"
+  },
+  "devices": [
+   "Apple Watch (Workout app) → Strava"
+  ],
+  "run_days": [
+   "Mon",
+   "Wed",
+   "Fri",
+   "Sat"
+  ],
+  "strength_days": [
+   "Mon PM",
+   "Wed PM"
+  ],
+  "prs_at_creation": {
+   "k5": "32:59",
+   "k10": "1:09:02",
+   "hm": "3:06:21"
+  },
+  "hr_zones_strava": {
+   "Z1": [
+    0,
+    130
+   ],
+   "Z2": [
+    131,
+    162
+   ],
+   "Z3": [
+    163,
+    178
+   ],
+   "Z4": [
+    179,
+    194
+   ],
+   "Z5": [
+    195,
+    null
+   ],
+   "source": "Strava, MaxHeartRate"
+  },
+  "zone_formula": {
+   "description": "Paces are offsets (s/km) from a reference pace. p10 = latest 10K time / 10. phm = Riegel half-marathon pace from that 10K: T10*(21.0975/10)^1.06/21.0975. goal_mp = goal marathon time / 42.195. Recompute after every checkpoint result.",
+   "rules": {
+    "E": {
+     "ref": "p10",
+     "lo": 56,
+     "hi": 106,
+     "hr": [
+      135,
+      155
+     ]
+    },
+    "L": {
+     "ref": "p10",
+     "lo": 66,
+     "hi": 96,
+     "hr": [
+      140,
+      155
+     ]
+    },
+    "REC": {
+     "ref": "p10",
+     "lo": 116,
+     "hi": 176,
+     "hr": [
+      null,
+      150
+     ]
+    },
+    "MP": {
+     "ref": "goal_mp",
+     "lo": -5,
+     "hi": 5,
+     "hr": [
+      155,
+      165
+     ]
+    },
+    "HMP": {
+     "ref": "phm",
+     "lo": 12,
+     "hi": 22,
+     "hr": [
+      163,
+      175
+     ]
+    },
+    "T": {
+     "ref": "p10",
+     "lo": 6,
+     "hi": 16,
+     "hr": [
+      168,
+      178
+     ]
+    },
+    "I": {
+     "ref": "p10",
+     "lo": -9,
+     "hi": 1,
+     "hr": [
+      175,
+      185
+     ]
+    },
+    "ST": {
+     "ref": "p10",
+     "lo": -84,
+     "hi": -54,
+     "hr": [
+      null,
+      null
+     ]
+    },
+    "H": {
+     "ref": null,
+     "lo": null,
+     "hi": null,
+     "hr": [
+      null,
+      null
+     ]
+    },
+    "RACE": {
+     "ref": null,
+     "lo": null,
+     "hi": null,
+     "hr": [
+      null,
+      null
+     ]
+    }
+   },
+   "current_reference": {
+    "test": "10K PR 1:09:02 (6 Sep 2026)",
+    "riegel_marathon_from_10k": "317:34"
+   },
+   "note_v3": "v3 uses the HM target directly for phm: 8640/21.0975 s/km; its p10 is the Riegel-equivalent 10K."
+  },
+  "rules": {
+   "long_run_spike": "Warn if a run's distance exceeds 110% of the longest run in the previous 30 days (Frandsen et al. 2025, BJSM).",
+   "easy_hr": "On E/L runs heart rate is the primary target: flag if more than 20% of moving time is above the zone HR max.",
+   "quality": "On quality runs pace is primary; HR max is a ceiling. Cut a rep short if HR exceeds the zone max by >3 bpm or knee pain >3/10.",
+   "knee": "Knee pain ≤3/10 that settles by next morning → continue. >3/10, limping or worse next day → next run 30 min easy or rest. Two such entries within 14 days → show 'see a physiotherapist'.",
+   "missed": "Missed ≤3 days: continue as written. Missed a full week: repeat the previous week (shift plan by one week only if the user confirms). Never double up.",
+   "fever": "No running until 24 h fever-free.",
+   "fatigue": "Easy-run HR 5+ bpm above the 4-week average for 7 days → suggest taking the next deload week early."
+  },
+  "checkpoints": [
+   {
+    "id": "CP1",
+    "date": "2026-11-29",
+    "test": "Astra HM",
+    "on_track": "< 2:40",
+    "action": "Reset zones from result"
+   },
+   {
+    "id": "CP2",
+    "date": "2027-02-06",
+    "test": "10K time trial",
+    "on_track": "≤ 1:06:30",
+    "action": "Reset zones; keep MP 7:05"
+   },
+   {
+    "id": "CP3",
+    "date": "2027-04-17",
+    "test": "HM time trial",
+    "on_track": "≤ 2:24",
+    "action": "2:24–2:30 → goal 5:00–5:10 (MP 7:10–7:20); >2:30 → goal ~5:15"
+   },
+   {
+    "id": "CP4",
+    "date": "2027-05-22",
+    "test": "16 km @ MP dress rehearsal",
+    "on_track": "avg HR < 165 on MP part",
+    "action": "Race at the pace that kept HR < 165"
+   }
+  ]
+ },
+ "zone_sets": {
+  "v1": {
+   "label": "Current: from 10K PR 1:09:02 (6 Sep 2026)",
+   "basis_10k_s": 4142,
+   "used_for": "Astra block to B8 (until Checkpoint 2)",
+   "zones": {
+    "E": {
+     "code": "E",
+     "name": "Easy",
+     "pace_min_s_per_km": 470,
+     "pace_max_s_per_km": 520,
+     "pace_text": "7:50–8:40 /km",
+     "hr_min": 135,
+     "hr_max": 155,
+     "primary_target": "HR",
+     "feel": "Conversational: you can speak full sentences. RPE 3–4/10."
+    },
+    "L": {
+     "code": "L",
+     "name": "Long run",
+     "pace_min_s_per_km": 480,
+     "pace_max_s_per_km": 510,
+     "pace_text": "8:00–8:30 /km",
+     "hr_min": 140,
+     "hr_max": 155,
+     "primary_target": "HR",
+     "feel": "Easy and steady; allow HR up to 160 in the final hour. RPE 4/10."
+    },
+    "REC": {
+     "code": "REC",
+     "name": "Recovery jog",
+     "pace_min_s_per_km": 530,
+     "pace_max_s_per_km": 590,
+     "pace_text": "8:50–9:50 /km",
+     "hr_min": null,
+     "hr_max": 150,
+     "primary_target": "HR",
+     "feel": "Very easy jog or walk between reps; start the next rep when HR is under ~150."
+    },
+    "MP": {
+     "code": "MP",
+     "name": "Goal marathon pace",
+     "pace_min_s_per_km": 420,
+     "pace_max_s_per_km": 430,
+     "pace_text": "7:00–7:10 /km",
+     "hr_min": 155,
+     "hr_max": 165,
+     "primary_target": "pace",
+     "feel": "Steady and controlled; you could hold it for hours. RPE 5–6/10."
+    },
+    "HMP": {
+     "code": "HMP",
+     "name": "Half-marathon (Astra) pace",
+     "pace_min_s_per_km": 445,
+     "pace_max_s_per_km": 455,
+     "pace_text": "7:25–7:35 /km",
+     "hr_min": 163,
+     "hr_max": 175,
+     "primary_target": "pace",
+     "feel": "Comfortably hard; short phrases only. RPE 6–7/10."
+    },
+    "T": {
+     "code": "T",
+     "name": "Tempo / threshold",
+     "pace_min_s_per_km": 420,
+     "pace_max_s_per_km": 430,
+     "pace_text": "7:00–7:10 /km",
+     "hr_min": 168,
+     "hr_max": 178,
+     "primary_target": "pace",
+     "feel": "Comfortably hard; 3–4 words at a time. RPE 7/10."
+    },
+    "I": {
+     "code": "I",
+     "name": "10K-pace intervals",
+     "pace_min_s_per_km": 405,
+     "pace_max_s_per_km": 415,
+     "pace_text": "6:45–6:55 /km",
+     "hr_min": 175,
+     "hr_max": 185,
+     "primary_target": "pace",
+     "feel": "Hard but controlled; you could not talk. RPE 8/10."
+    },
+    "ST": {
+     "code": "ST",
+     "name": "Strides",
+     "pace_min_s_per_km": 330,
+     "pace_max_s_per_km": 360,
+     "pace_text": "5:30–6:00 /km",
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "feel",
+     "feel": "20 s smooth and fast, about 85–90% effort, never a sprint. Walk 40–60 s between."
+    },
+    "H": {
+     "code": "H",
+     "name": "Hill reps",
+     "pace_min_s_per_km": null,
+     "pace_max_s_per_km": null,
+     "pace_text": null,
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "feel",
+     "feel": "Hard uphill effort 8/10 on a 4–6% slope (a flyover ramp works); jog or walk down."
+    },
+    "RACE": {
+     "code": "RACE",
+     "name": "Race",
+     "pace_min_s_per_km": null,
+     "pace_max_s_per_km": null,
+     "pace_text": null,
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "plan",
+     "feel": "Follow the race plan."
+    }
+   }
+  },
+  "v2": {
+   "label": "Projected: if Checkpoint 2 10K = 1:06:30",
+   "basis_10k_s": 3990,
+   "used_for": "B9 to S7 (until Checkpoint 3)",
+   "zones": {
+    "E": {
+     "code": "E",
+     "name": "Easy",
+     "pace_min_s_per_km": 455,
+     "pace_max_s_per_km": 505,
+     "pace_text": "7:35–8:25 /km",
+     "hr_min": 135,
+     "hr_max": 155,
+     "primary_target": "HR",
+     "feel": "Conversational: you can speak full sentences. RPE 3–4/10."
+    },
+    "L": {
+     "code": "L",
+     "name": "Long run",
+     "pace_min_s_per_km": 465,
+     "pace_max_s_per_km": 495,
+     "pace_text": "7:45–8:15 /km",
+     "hr_min": 140,
+     "hr_max": 155,
+     "primary_target": "HR",
+     "feel": "Easy and steady; allow HR up to 160 in the final hour. RPE 4/10."
+    },
+    "REC": {
+     "code": "REC",
+     "name": "Recovery jog",
+     "pace_min_s_per_km": 515,
+     "pace_max_s_per_km": 575,
+     "pace_text": "8:35–9:35 /km",
+     "hr_min": null,
+     "hr_max": 150,
+     "primary_target": "HR",
+     "feel": "Very easy jog or walk between reps; start the next rep when HR is under ~150."
+    },
+    "MP": {
+     "code": "MP",
+     "name": "Goal marathon pace",
+     "pace_min_s_per_km": 420,
+     "pace_max_s_per_km": 430,
+     "pace_text": "7:00–7:10 /km",
+     "hr_min": 155,
+     "hr_max": 165,
+     "primary_target": "pace",
+     "feel": "Steady and controlled; you could hold it for hours. RPE 5–6/10."
+    },
+    "HMP": {
+     "code": "HMP",
+     "name": "Half-marathon (Astra) pace",
+     "pace_min_s_per_km": 429,
+     "pace_max_s_per_km": 439,
+     "pace_text": "7:09–7:19 /km",
+     "hr_min": 163,
+     "hr_max": 175,
+     "primary_target": "pace",
+     "feel": "Comfortably hard; short phrases only. RPE 6–7/10."
+    },
+    "T": {
+     "code": "T",
+     "name": "Tempo / threshold",
+     "pace_min_s_per_km": 405,
+     "pace_max_s_per_km": 415,
+     "pace_text": "6:45–6:55 /km",
+     "hr_min": 168,
+     "hr_max": 178,
+     "primary_target": "pace",
+     "feel": "Comfortably hard; 3–4 words at a time. RPE 7/10."
+    },
+    "I": {
+     "code": "I",
+     "name": "10K-pace intervals",
+     "pace_min_s_per_km": 390,
+     "pace_max_s_per_km": 400,
+     "pace_text": "6:30–6:40 /km",
+     "hr_min": 175,
+     "hr_max": 185,
+     "primary_target": "pace",
+     "feel": "Hard but controlled; you could not talk. RPE 8/10."
+    },
+    "ST": {
+     "code": "ST",
+     "name": "Strides",
+     "pace_min_s_per_km": 315,
+     "pace_max_s_per_km": 345,
+     "pace_text": "5:15–5:45 /km",
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "feel",
+     "feel": "20 s smooth and fast, about 85–90% effort, never a sprint. Walk 40–60 s between."
+    },
+    "H": {
+     "code": "H",
+     "name": "Hill reps",
+     "pace_min_s_per_km": null,
+     "pace_max_s_per_km": null,
+     "pace_text": null,
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "feel",
+     "feel": "Hard uphill effort 8/10 on a 4–6% slope (a flyover ramp works); jog or walk down."
+    },
+    "RACE": {
+     "code": "RACE",
+     "name": "Race",
+     "pace_min_s_per_km": null,
+     "pace_max_s_per_km": null,
+     "pace_text": null,
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "plan",
+     "feel": "Follow the race plan."
+    }
+   }
+  },
+  "v3": {
+   "label": "Projected: if Checkpoint 3 HM = 2:24:00",
+   "basis_10k_s": 3916,
+   "used_for": "S8 to race",
+   "zones": {
+    "E": {
+     "code": "E",
+     "name": "Easy",
+     "pace_min_s_per_km": 448,
+     "pace_max_s_per_km": 498,
+     "pace_text": "7:28–8:18 /km",
+     "hr_min": 135,
+     "hr_max": 155,
+     "primary_target": "HR",
+     "feel": "Conversational: you can speak full sentences. RPE 3–4/10."
+    },
+    "L": {
+     "code": "L",
+     "name": "Long run",
+     "pace_min_s_per_km": 458,
+     "pace_max_s_per_km": 488,
+     "pace_text": "7:38–8:08 /km",
+     "hr_min": 140,
+     "hr_max": 155,
+     "primary_target": "HR",
+     "feel": "Easy and steady; allow HR up to 160 in the final hour. RPE 4/10."
+    },
+    "REC": {
+     "code": "REC",
+     "name": "Recovery jog",
+     "pace_min_s_per_km": 508,
+     "pace_max_s_per_km": 568,
+     "pace_text": "8:28–9:28 /km",
+     "hr_min": null,
+     "hr_max": 150,
+     "primary_target": "HR",
+     "feel": "Very easy jog or walk between reps; start the next rep when HR is under ~150."
+    },
+    "MP": {
+     "code": "MP",
+     "name": "Goal marathon pace",
+     "pace_min_s_per_km": 420,
+     "pace_max_s_per_km": 430,
+     "pace_text": "7:00–7:10 /km",
+     "hr_min": 155,
+     "hr_max": 165,
+     "primary_target": "pace",
+     "feel": "Steady and controlled; you could hold it for hours. RPE 5–6/10."
+    },
+    "HMP": {
+     "code": "HMP",
+     "name": "Half-marathon (Astra) pace",
+     "pace_min_s_per_km": 422,
+     "pace_max_s_per_km": 432,
+     "pace_text": "7:02–7:12 /km",
+     "hr_min": 163,
+     "hr_max": 175,
+     "primary_target": "pace",
+     "feel": "Comfortably hard; short phrases only. RPE 6–7/10."
+    },
+    "T": {
+     "code": "T",
+     "name": "Tempo / threshold",
+     "pace_min_s_per_km": 398,
+     "pace_max_s_per_km": 408,
+     "pace_text": "6:38–6:48 /km",
+     "hr_min": 168,
+     "hr_max": 178,
+     "primary_target": "pace",
+     "feel": "Comfortably hard; 3–4 words at a time. RPE 7/10."
+    },
+    "I": {
+     "code": "I",
+     "name": "10K-pace intervals",
+     "pace_min_s_per_km": 383,
+     "pace_max_s_per_km": 393,
+     "pace_text": "6:23–6:33 /km",
+     "hr_min": 175,
+     "hr_max": 185,
+     "primary_target": "pace",
+     "feel": "Hard but controlled; you could not talk. RPE 8/10."
+    },
+    "ST": {
+     "code": "ST",
+     "name": "Strides",
+     "pace_min_s_per_km": 308,
+     "pace_max_s_per_km": 338,
+     "pace_text": "5:08–5:38 /km",
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "feel",
+     "feel": "20 s smooth and fast, about 85–90% effort, never a sprint. Walk 40–60 s between."
+    },
+    "H": {
+     "code": "H",
+     "name": "Hill reps",
+     "pace_min_s_per_km": null,
+     "pace_max_s_per_km": null,
+     "pace_text": null,
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "feel",
+     "feel": "Hard uphill effort 8/10 on a 4–6% slope (a flyover ramp works); jog or walk down."
+    },
+    "RACE": {
+     "code": "RACE",
+     "name": "Race",
+     "pace_min_s_per_km": null,
+     "pace_max_s_per_km": null,
+     "pace_text": null,
+     "hr_min": null,
+     "hr_max": null,
+     "primary_target": "plan",
+     "feel": "Follow the race plan."
+    }
+   }
+  }
+ },
+ "strength_templates": {
+  "A_P0": {
+   "name": "Strength A – Astra block",
+   "minutes": 50,
+   "intent": "Keep strength without soreness; RPE 7 (2–3 reps in reserve)",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "goblet_squat",
+     "sets": 3,
+     "reps": "6",
+     "rest_s": 120,
+     "rpe": 7,
+     "note": "Or back squat if you already lift"
+    },
+    {
+     "exercise": "rdl",
+     "sets": 3,
+     "reps": "8",
+     "rest_s": 120,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "split_squat",
+     "sets": 2,
+     "reps": "8 per leg",
+     "rest_s": 90,
+     "rpe": 7,
+     "note": "Swap for step-ups if the knee complains"
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 3,
+     "reps": "12",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": "3 s lowering"
+    },
+    {
+     "exercise": "calf_seated",
+     "sets": 3,
+     "reps": "15",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 3,
+     "reps": "12 per side",
+     "rest_s": 45,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "tibialis_raise",
+     "sets": 2,
+     "reps": "15",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "dead_bug",
+     "sets": 3,
+     "reps": "8 per side",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "side_plank",
+     "sets": 2,
+     "reps": "30 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 2,
+     "reps": "10 spreads + 3×10 s holds",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "B_P0": {
+   "name": "Strength B – Astra block (short)",
+   "minutes": 20,
+   "intent": "Light single-leg and core work after a quality run; RPE 6–7",
+   "items": [
+    {
+     "exercise": "step_up",
+     "sets": 2,
+     "reps": "8 per leg",
+     "rest_s": 60,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "sl_rdl",
+     "sets": 2,
+     "reps": "8 per leg",
+     "rest_s": 60,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "hip_thrust",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "copenhagen",
+     "sets": 2,
+     "reps": "15 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "pallof",
+     "sets": 2,
+     "reps": "10 per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "ACT": {
+   "name": "Activation only (race week)",
+   "minutes": 15,
+   "intent": "Feel springy, no fatigue",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 2,
+     "reps": "12 per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 2,
+     "reps": "12",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "dead_bug",
+     "sets": 2,
+     "reps": "8 per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "L_P1": {
+   "name": "Light full-body (recovery)",
+   "minutes": 30,
+   "intent": "Re-start lifting, RPE 6",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "goblet_squat",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 90,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "rdl",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 90,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "step_up",
+     "sets": 2,
+     "reps": "8 per leg",
+     "rest_s": 60,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 2,
+     "reps": "12",
+     "rest_s": 60,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 2,
+     "reps": "12 per side",
+     "rest_s": 45,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "side_plank",
+     "sets": 2,
+     "reps": "30 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "A_B1": {
+   "name": "Strength A – Foundation",
+   "minutes": 55,
+   "intent": "Learn the lifts with moderate weight; RPE 7",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "goblet_squat",
+     "sets": 3,
+     "reps": "10",
+     "rest_s": 90,
+     "rpe": 7,
+     "note": "Move to back squat 3×8 from B3 if form is solid"
+    },
+    {
+     "exercise": "rdl",
+     "sets": 3,
+     "reps": "10",
+     "rest_s": 90,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "split_squat",
+     "sets": 3,
+     "reps": "8 per leg",
+     "rest_s": 90,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 3,
+     "reps": "12",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "calf_seated",
+     "sets": 3,
+     "reps": "15",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 3,
+     "reps": "15 per side",
+     "rest_s": 45,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "tibialis_raise",
+     "sets": 2,
+     "reps": "15",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "dead_bug",
+     "sets": 3,
+     "reps": "8 per side",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "side_plank",
+     "sets": 3,
+     "reps": "30 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "B_B1": {
+   "name": "Strength B – Foundation",
+   "minutes": 40,
+   "intent": "Introduce plyometrics and single-leg strength; RPE 7",
+   "items": [
+    {
+     "exercise": "a_skip",
+     "sets": 2,
+     "reps": "20 m",
+     "rest_s": 60,
+     "rpe": null,
+     "note": "Plyometrics first, while fresh"
+    },
+    {
+     "exercise": "pogo",
+     "sets": 2,
+     "reps": "20",
+     "rest_s": 60,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "trap_bar_dl",
+     "sets": 3,
+     "reps": "8",
+     "rest_s": 120,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "step_up",
+     "sets": 3,
+     "reps": "8 per leg",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "sl_rdl",
+     "sets": 3,
+     "reps": "8 per leg",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "hip_thrust",
+     "sets": 3,
+     "reps": "10",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "copenhagen",
+     "sets": 3,
+     "reps": "15 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "pallof",
+     "sets": 3,
+     "reps": "10 per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "A_B2": {
+   "name": "Strength A – Max strength",
+   "minutes": 60,
+   "intent": "Heavier, fewer reps; RPE 8 (1–2 reps in reserve)",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "back_squat",
+     "sets": 4,
+     "reps": "5",
+     "rest_s": 180,
+     "rpe": 8,
+     "note": "2 lighter warm-up sets first"
+    },
+    {
+     "exercise": "rdl",
+     "sets": 3,
+     "reps": "6",
+     "rest_s": 150,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "split_squat",
+     "sets": 3,
+     "reps": "6 per leg",
+     "rest_s": 120,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 4,
+     "reps": "8",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": "Single-leg with dumbbell"
+    },
+    {
+     "exercise": "calf_seated",
+     "sets": 3,
+     "reps": "12",
+     "rest_s": 60,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 3,
+     "reps": "12 per side",
+     "rest_s": 45,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "tibialis_raise",
+     "sets": 2,
+     "reps": "15",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "dead_bug",
+     "sets": 3,
+     "reps": "8 per side",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "side_plank",
+     "sets": 3,
+     "reps": "40 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "B_B2": {
+   "name": "Strength B – Power",
+   "minutes": 50,
+   "intent": "Plyometrics 40→80 contacts plus heavy pulls; RPE 8",
+   "items": [
+    {
+     "exercise": "pogo",
+     "sets": 3,
+     "reps": "20",
+     "rest_s": 60,
+     "rpe": null,
+     "note": "Week B5–B6: 2×20 only"
+    },
+    {
+     "exercise": "box_jump",
+     "sets": 4,
+     "reps": "4",
+     "rest_s": 90,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "bounds",
+     "sets": 3,
+     "reps": "20 m",
+     "rest_s": 90,
+     "rpe": null,
+     "note": "Add from B7"
+    },
+    {
+     "exercise": "trap_bar_dl",
+     "sets": 4,
+     "reps": "4",
+     "rest_s": 180,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "step_up",
+     "sets": 3,
+     "reps": "6 per leg",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "sl_rdl",
+     "sets": 3,
+     "reps": "6 per leg",
+     "rest_s": 60,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "hip_thrust",
+     "sets": 3,
+     "reps": "8",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "copenhagen",
+     "sets": 3,
+     "reps": "20 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "pallof",
+     "sets": 3,
+     "reps": "10 per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "A_S": {
+   "name": "Strength A – Maintain",
+   "minutes": 45,
+   "intent": "Hold strength while running volume peaks; RPE 8, stop 1–2 reps short",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "back_squat",
+     "sets": 3,
+     "reps": "4",
+     "rest_s": 180,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "rdl",
+     "sets": 2,
+     "reps": "6",
+     "rest_s": 120,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "split_squat",
+     "sets": 2,
+     "reps": "6 per leg",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 3,
+     "reps": "8",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 2,
+     "reps": "12 per side",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "dead_bug",
+     "sets": 2,
+     "reps": "8 per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "side_plank",
+     "sets": 2,
+     "reps": "40 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "B_S": {
+   "name": "Strength B – Maintain power",
+   "minutes": 40,
+   "intent": "60–100 plyometric contacts plus heavy pull; RPE 8",
+   "items": [
+    {
+     "exercise": "pogo",
+     "sets": 3,
+     "reps": "20",
+     "rest_s": 60,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "box_jump",
+     "sets": 3,
+     "reps": "5",
+     "rest_s": 90,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "bounds",
+     "sets": 3,
+     "reps": "30 m",
+     "rest_s": 90,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "trap_bar_dl",
+     "sets": 3,
+     "reps": "3",
+     "rest_s": 180,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "step_up",
+     "sets": 2,
+     "reps": "6 per leg",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "sl_rdl",
+     "sets": 2,
+     "reps": "6 per leg",
+     "rest_s": 60,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "hip_thrust",
+     "sets": 2,
+     "reps": "8",
+     "rest_s": 90,
+     "rpe": 8,
+     "note": ""
+    },
+    {
+     "exercise": "copenhagen",
+     "sets": 2,
+     "reps": "20 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "A_T1": {
+   "name": "Strength – Taper (normal load, low volume)",
+   "minutes": 30,
+   "intent": "Keep the feel of heavy lifting, no soreness",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "back_squat",
+     "sets": 2,
+     "reps": "3",
+     "rest_s": 180,
+     "rpe": 7,
+     "note": "Usual working load"
+    },
+    {
+     "exercise": "rdl",
+     "sets": 2,
+     "reps": "5",
+     "rest_s": 120,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 2,
+     "reps": "8",
+     "rest_s": 60,
+     "rpe": 7,
+     "note": ""
+    },
+    {
+     "exercise": "hip_abduction",
+     "sets": 2,
+     "reps": "12 per side",
+     "rest_s": 45,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "pogo",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 60,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "L_T2": {
+   "name": "Strength – Taper (light)",
+   "minutes": 25,
+   "intent": "Light and fresh; RPE 6",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": "5 min easy bike or rower first"
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 2,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "goblet_squat",
+     "sets": 2,
+     "reps": "5",
+     "rest_s": 90,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "rdl",
+     "sets": 2,
+     "reps": "5",
+     "rest_s": 90,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "calf_standing",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 60,
+     "rpe": 6,
+     "note": ""
+    },
+    {
+     "exercise": "side_plank",
+     "sets": 2,
+     "reps": "30 s per side",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  },
+  "MOB": {
+   "name": "Mobility only (race week)",
+   "minutes": 15,
+   "intent": "Stay loose; no load",
+   "items": [
+    {
+     "exercise": "glute_bridge",
+     "sets": 2,
+     "reps": "10",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "lateral_walk",
+     "sets": 1,
+     "reps": "10 steps each way",
+     "rest_s": 30,
+     "rpe": null,
+     "note": ""
+    },
+    {
+     "exercise": "foot_drills",
+     "sets": 1,
+     "reps": "10",
+     "rest_s": 0,
+     "rpe": null,
+     "note": ""
+    }
+   ]
+  }
+ },
+ "exercises": {
+  "glute_bridge": {
+   "name": "Glute bridge",
+   "category": "warm-up",
+   "equipment": "mat",
+   "purpose": "Wakes up the glutes before lifting or running.",
+   "how": [
+    "Lie on your back, knees bent, feet flat hip-width apart.",
+    "Push through your heels and lift your hips until knees, hips and shoulders line up.",
+    "Hold 1 s at the top, lower slowly."
+   ],
+   "cues": [
+    "Squeeze glutes, not lower back",
+    "Ribs down"
+   ],
+   "mistakes": [
+    "Arching the lower back",
+    "Pushing through toes"
+   ],
+   "start": "Bodyweight",
+   "progress": "Single-leg bridge",
+   "easier": "Smaller range",
+   "harder": "Single-leg or banded"
+  },
+  "lateral_walk": {
+   "name": "Banded lateral walk",
+   "category": "warm-up",
+   "equipment": "mini band",
+   "purpose": "Activates the side-hip muscles (gluteus medius) that keep the knee tracking straight.",
+   "how": [
+    "Mini band just above the knees or around the ankles.",
+    "Quarter-squat, feet hip-width.",
+    "Step sideways 10 steps, then back the other way."
+   ],
+   "cues": [
+    "Toes forward",
+    "Keep tension on the band the whole time"
+   ],
+   "mistakes": [
+    "Leaning the torso",
+    "Feet snapping together"
+   ],
+   "start": "Light band",
+   "progress": "Heavier band",
+   "easier": "Band above knees",
+   "harder": "Band at ankles"
+  },
+  "goblet_squat": {
+   "name": "Goblet squat",
+   "category": "squat",
+   "equipment": "dumbbell or kettlebell",
+   "purpose": "Teaches the squat pattern and builds quads and glutes, which protect the knee.",
+   "how": [
+    "Hold one dumbbell vertically against your chest, elbows down.",
+    "Feet shoulder-width, toes slightly out.",
+    "Sit down between your heels as deep as is pain-free, chest up.",
+    "Drive up through the whole foot."
+   ],
+   "cues": [
+    "Knees follow the toes",
+    "Elbows inside the knees at the bottom",
+    "2 s down, 1 s up"
+   ],
+   "mistakes": [
+    "Knees caving in",
+    "Heels lifting",
+    "Rounding the back"
+   ],
+   "start": "8–12 kg for men new to lifting; choose a weight you could lift 10–12 times when 6–8 are prescribed",
+   "progress": "+2 kg when all sets are done at RPE 7 or easier; move to back squat in Base week B3 if form is solid",
+   "easier": "Box squat to a bench",
+   "harder": "Back squat"
+  },
+  "back_squat": {
+   "name": "Back squat",
+   "category": "squat",
+   "equipment": "barbell + rack",
+   "purpose": "Main lower-body strength lift for running economy and knee resilience.",
+   "how": [
+    "Bar on the upper back (not the neck) in a rack at chest height.",
+    "Step back 2 steps, feet shoulder-width.",
+    "Brace your stomach, sit down and back to at least thighs parallel if pain-free.",
+    "Drive up, keeping chest and hips rising together."
+   ],
+   "cues": [
+    "Big breath and brace before each rep",
+    "Knees track over toes",
+    "Whole foot pressure"
+   ],
+   "mistakes": [
+    "Good-morning (hips shoot up first)",
+    "Knees caving",
+    "Bouncing at the bottom"
+   ],
+   "start": "Empty bar (20 kg) for 2 warm-up sets, then add 5–10 kg per set until RPE 7",
+   "progress": "+2.5–5 kg per week when all reps hit at target RPE",
+   "easier": "Goblet squat",
+   "harder": "Pause squat (2 s at bottom)"
+  },
+  "rdl": {
+   "name": "Romanian deadlift (RDL)",
+   "category": "hinge",
+   "equipment": "barbell or dumbbells",
+   "purpose": "Strengthens hamstrings and glutes, the engine for uphill and late-race running.",
+   "how": [
+    "Stand tall holding the bar at the hips, soft knees.",
+    "Push hips back, sliding the bar down the thighs, back flat.",
+    "Stop when you feel a strong hamstring stretch (usually just below the knee).",
+    "Squeeze glutes to stand up."
+   ],
+   "cues": [
+    "Hips go back, not down",
+    "Bar stays touching the legs",
+    "Neutral neck"
+   ],
+   "mistakes": [
+    "Rounding the back",
+    "Turning it into a squat",
+    "Going too low"
+   ],
+   "start": "20–30 kg barbell or 2×10 kg dumbbells",
+   "progress": "+2.5–5 kg when reps are smooth at target RPE",
+   "easier": "Dumbbell RDL",
+   "harder": "Single-leg RDL with weight"
+  },
+  "trap_bar_dl": {
+   "name": "Trap-bar deadlift",
+   "category": "hinge",
+   "equipment": "trap (hex) bar",
+   "purpose": "Heavy whole-body pull that is easier on the back than a straight-bar deadlift.",
+   "how": [
+    "Stand in the middle of the bar, feet hip-width.",
+    "Hinge and grip the handles, hips between knees and shoulders.",
+    "Brace, then push the floor away to stand tall.",
+    "Lower under control."
+   ],
+   "cues": [
+    "Push the floor away",
+    "Chest up, back flat",
+    "Lock out with glutes, don't lean back"
+   ],
+   "mistakes": [
+    "Jerking the bar",
+    "Hips rising first",
+    "Leaning back at the top"
+   ],
+   "start": "Bar alone (often 20–25 kg) plus 10–20 kg",
+   "progress": "+5 kg when all sets are at target RPE",
+   "easier": "Kettlebell deadlift",
+   "harder": "Heavier sets of 3–5"
+  },
+  "split_squat": {
+   "name": "Bulgarian split squat",
+   "category": "single-leg",
+   "equipment": "bench + dumbbells",
+   "purpose": "Single-leg strength and balance; trains each leg like running does.",
+   "how": [
+    "Stand about 2 steps in front of a bench, rear foot laces-down on the bench.",
+    "Lower straight down until the front thigh is about parallel.",
+    "Push through the front heel to stand.",
+    "Finish all reps on one leg, then switch."
+   ],
+   "cues": [
+    "Front knee over the 2nd–3rd toe",
+    "Torso slightly forward",
+    "Most weight on the front leg"
+   ],
+   "mistakes": [
+    "Front foot too close",
+    "Knee caving",
+    "Pushing off the back foot"
+   ],
+   "start": "Bodyweight for the first session, then 2×6–8 kg dumbbells",
+   "progress": "+2 kg per hand when all reps are at target RPE",
+   "easier": "Static split squat (back foot on floor) or step-up",
+   "harder": "Heavier dumbbells; 3 s lowering"
+  },
+  "step_up": {
+   "name": "Step-up",
+   "category": "single-leg",
+   "equipment": "box 30–45 cm + dumbbells",
+   "purpose": "Knee-friendly single-leg strength; a good swap when split squats irritate the knee.",
+   "how": [
+    "Put one whole foot on a box (knee about 90°).",
+    "Drive through that foot to stand on the box; the back leg only follows.",
+    "Lower slowly with the same leg."
+   ],
+   "cues": [
+    "Don't push off the floor leg",
+    "Knee tracks over toes",
+    "Stand tall at the top"
+   ],
+   "mistakes": [
+    "Bouncing off the bottom foot",
+    "Box too high"
+   ],
+   "start": "Bodyweight, 30 cm box",
+   "progress": "Add dumbbells, then a higher box",
+   "easier": "Lower box",
+   "harder": "Heavier dumbbells, 45 cm box"
+  },
+  "sl_rdl": {
+   "name": "Single-leg RDL",
+   "category": "single-leg hinge",
+   "equipment": "dumbbell or kettlebell",
+   "purpose": "Hamstring strength plus ankle and hip stability on one leg.",
+   "how": [
+    "Stand on one leg, soft knee, weight in the opposite hand.",
+    "Hinge forward as the free leg goes straight back.",
+    "Stop when the torso is near parallel or balance breaks; return."
+   ],
+   "cues": [
+    "Hips square to the floor",
+    "Back flat",
+    "Slow and controlled"
+   ],
+   "mistakes": [
+    "Hip rotating open",
+    "Rounding the back"
+   ],
+   "start": "Bodyweight, fingertips on a wall for balance",
+   "progress": "Add 6–12 kg",
+   "easier": "Kickstand RDL (back toe touching floor)",
+   "harder": "Heavier weight"
+  },
+  "hip_thrust": {
+   "name": "Hip thrust",
+   "category": "glute",
+   "equipment": "bench + barbell (pad) or dumbbell",
+   "purpose": "Builds glute strength for hip extension and pelvic control late in long runs.",
+   "how": [
+    "Upper back on a bench, bar across the hips with a pad.",
+    "Feet flat, shins vertical at the top.",
+    "Drive hips up to a straight line from knees to shoulders; pause 1 s; lower."
+   ],
+   "cues": [
+    "Chin tucked",
+    "Ribs down",
+    "Squeeze glutes at the top"
+   ],
+   "mistakes": [
+    "Arching the back",
+    "Feet too far out"
+   ],
+   "start": "Bodyweight, then 20–40 kg",
+   "progress": "+5–10 kg when all reps are at target RPE",
+   "easier": "Glute bridge",
+   "harder": "Single-leg hip thrust"
+  },
+  "calf_standing": {
+   "name": "Standing calf raise (straight knee)",
+   "category": "calf",
+   "equipment": "step or calf machine",
+   "purpose": "Strengthens the gastrocnemius and Achilles, which take several times body weight each running step.",
+   "how": [
+    "Balls of feet on a step, heels hanging off.",
+    "Rise as high as possible, pause 1 s.",
+    "Lower for 3 s to a full stretch."
+   ],
+   "cues": [
+    "Straight knees",
+    "Full range",
+    "Push through the big toe"
+   ],
+   "mistakes": [
+    "Bouncing",
+    "Half reps"
+   ],
+   "start": "Bodyweight on both legs, then single-leg",
+   "progress": "Single-leg holding a dumbbell; then machine with load",
+   "easier": "Both legs, flat floor",
+   "harder": "Single-leg with 10–20 kg"
+  },
+  "calf_seated": {
+   "name": "Seated calf raise (bent knee)",
+   "category": "calf",
+   "equipment": "seated calf machine or bench + barbell/dumbbell on knees",
+   "purpose": "Targets the soleus, the calf muscle that does most of the work in endurance running.",
+   "how": [
+    "Sit with knees at 90°, balls of feet on a plate or step, weight on the knees.",
+    "Raise heels as high as possible, pause.",
+    "Lower slowly to a stretch."
+   ],
+   "cues": [
+    "Slow lowering",
+    "Full range"
+   ],
+   "mistakes": [
+    "Too heavy, tiny range"
+   ],
+   "start": "20 kg",
+   "progress": "+5 kg when 15 reps feel easy",
+   "easier": "Lighter load",
+   "harder": "Heavier, 3 s lowering"
+  },
+  "hip_abduction": {
+   "name": "Hip abduction (cable or side-lying)",
+   "category": "hip",
+   "equipment": "cable machine, band or mat",
+   "purpose": "Strengthens the side hip; hip work is part of evidence-based care for knee pain (patellofemoral pain).",
+   "how": [
+    "Cable: ankle strap on the far leg, stand side-on, lift the leg out to the side 30–40°, slowly return.",
+    "Side-lying option: lie on your side, top leg straight and slightly back, lift with heel leading."
+   ],
+   "cues": [
+    "Toes forward, heel leads",
+    "Don't lean the torso"
+   ],
+   "mistakes": [
+    "Swinging",
+    "Rolling the hip back"
+   ],
+   "start": "Bodyweight side-lying or lightest cable plate",
+   "progress": "Add ankle weight or cable load",
+   "easier": "Banded clams",
+   "harder": "Heavier cable, 2 s hold at top"
+  },
+  "tibialis_raise": {
+   "name": "Tibialis raise",
+   "category": "shin",
+   "equipment": "wall",
+   "purpose": "Strengthens the front of the shin for downhill running and shin-splint resistance.",
+   "how": [
+    "Lean your back against a wall, heels about 30 cm from it.",
+    "Lift your toes as high as possible, keeping heels down.",
+    "Lower slowly."
+   ],
+   "cues": [
+    "Heels stay down",
+    "Full range"
+   ],
+   "mistakes": [
+    "Rushing"
+   ],
+   "start": "Bodyweight",
+   "progress": "Feet further from the wall",
+   "easier": "Feet closer",
+   "harder": "Tib bar or plate on feet"
+  },
+  "dead_bug": {
+   "name": "Dead bug",
+   "category": "core",
+   "equipment": "mat",
+   "purpose": "Teaches the core to stay stable while the arms and legs move, as in running.",
+   "how": [
+    "Lie on your back, arms up, hips and knees at 90°.",
+    "Press the lower back gently into the floor.",
+    "Slowly extend the opposite arm and leg, exhale, return; switch sides."
+   ],
+   "cues": [
+    "Low back stays down",
+    "Move slowly"
+   ],
+   "mistakes": [
+    "Back arching off the floor",
+    "Holding breath"
+   ],
+   "start": "Bodyweight",
+   "progress": "Hold a light plate overhead",
+   "easier": "Move legs only",
+   "harder": "Slower, 3 s each way"
+  },
+  "side_plank": {
+   "name": "Side plank",
+   "category": "core",
+   "equipment": "mat",
+   "purpose": "Strengthens the side core and hips that stop the pelvis dropping each stride.",
+   "how": [
+    "Lie on your side, elbow under the shoulder.",
+    "Lift hips so ankles, hips and shoulders form a straight line.",
+    "Hold, breathing normally."
+   ],
+   "cues": [
+    "Hips forward and up",
+    "Head in line"
+   ],
+   "mistakes": [
+    "Hips sagging",
+    "Rolling forward"
+   ],
+   "start": "Knees bent version if a full one can't be held 20 s",
+   "progress": "+10 s per week",
+   "easier": "Knees on floor",
+   "harder": "Top leg raised"
+  },
+  "copenhagen": {
+   "name": "Copenhagen plank",
+   "category": "core / adductor",
+   "equipment": "bench",
+   "purpose": "Strengthens the inner thigh (adductors), which stabilise the knee and pelvis.",
+   "how": [
+    "Side plank with your top leg resting on a bench (knee on the bench for the beginner version).",
+    "Lift your hips and the bottom leg so the body is straight.",
+    "Hold, then switch sides."
+   ],
+   "cues": [
+    "Straight line",
+    "Squeeze the top leg into the bench"
+   ],
+   "mistakes": [
+    "Hips sagging"
+   ],
+   "start": "Short lever (knee on bench), 10–15 s",
+   "progress": "Long lever (ankle on bench)",
+   "easier": "Short lever",
+   "harder": "Long lever, longer holds"
+  },
+  "pallof": {
+   "name": "Pallof press",
+   "category": "core (anti-rotation)",
+   "equipment": "cable or band",
+   "purpose": "Trains the trunk to resist twisting, which keeps running form tidy when tired.",
+   "how": [
+    "Stand side-on to a cable at chest height, handle at your chest.",
+    "Brace, press the handle straight out, hold 2 s, return.",
+    "Finish reps, then face the other way."
+   ],
+   "cues": [
+    "Don't let the cable rotate you",
+    "Hips square"
+   ],
+   "mistakes": [
+    "Leaning away",
+    "Too heavy"
+   ],
+   "start": "Light cable or band",
+   "progress": "Step further away or add load",
+   "easier": "Kneeling version",
+   "harder": "Split stance, more load"
+  },
+  "foot_drills": {
+   "name": "Toe spreads + short-foot hold",
+   "category": "foot",
+   "equipment": "none (barefoot)",
+   "purpose": "Foot muscle strength and comfort with a bunion. Not a bunion correction.",
+   "how": [
+    "Toe spreads: sitting barefoot, spread all toes as wide as possible, hold 3 s, relax.",
+    "Short foot: shorten the foot by gently lifting the arch without curling the toes; hold 10 s."
+   ],
+   "cues": [
+    "Big toe stays on the floor",
+    "No toe curling"
+   ],
+   "mistakes": [
+    "Gripping with toes"
+   ],
+   "start": "Seated",
+   "progress": "Standing, then single-leg",
+   "easier": "Seated, smaller holds",
+   "harder": "Single-leg balance with short foot"
+  },
+  "pogo": {
+   "name": "Pogo hops",
+   "category": "plyometric",
+   "equipment": "none",
+   "purpose": "Teaches stiff, springy ankles that return energy, which improves running economy.",
+   "how": [
+    "Stand tall, small knee bend.",
+    "Bounce quickly on the balls of your feet, ankles doing the work, 2–5 cm off the floor.",
+    "Stay light and quiet."
+   ],
+   "cues": [
+    "Fast ground contact",
+    "Quiet landings",
+    "Tall posture"
+   ],
+   "mistakes": [
+    "Big knee bend",
+    "Heels slamming"
+   ],
+   "start": "2×10",
+   "progress": "2×20 → 3×20",
+   "easier": "Skipping rope easy",
+   "harder": "Single-leg pogos"
+  },
+  "a_skip": {
+   "name": "A-skip",
+   "category": "drill / plyometric",
+   "equipment": "flat 20 m",
+   "purpose": "Running-form drill: knee lift, foot strike under the hip.",
+   "how": [
+    "Skip forward, driving one knee to hip height while the other foot strikes down under the hip.",
+    "Swing arms in rhythm. Cover 20 m."
+   ],
+   "cues": [
+    "Foot lands under the hip",
+    "Tall"
+   ],
+   "mistakes": [
+    "Leaning back",
+    "Overstriding"
+   ],
+   "start": "2×20 m",
+   "progress": "3×20 m",
+   "easier": "Marching A",
+   "harder": "Faster rhythm"
+  },
+  "box_jump": {
+   "name": "Low box jump",
+   "category": "plyometric",
+   "equipment": "box 30–40 cm",
+   "purpose": "Builds explosive leg power with a soft landing (low impact because you step down).",
+   "how": [
+    "Stand 30 cm from the box.",
+    "Swing arms, jump onto the box, land softly in a quarter-squat.",
+    "Stand up, then STEP down (don't jump down)."
+   ],
+   "cues": [
+    "Land quietly",
+    "Knees over toes on landing"
+   ],
+   "mistakes": [
+    "Box too high",
+    "Jumping down"
+   ],
+   "start": "30 cm box, 3×4",
+   "progress": "4×5, then 40 cm",
+   "easier": "Squat jump onto the floor",
+   "harder": "40–50 cm box"
+  },
+  "bounds": {
+   "name": "Bounding",
+   "category": "plyometric",
+   "equipment": "flat 20–30 m",
+   "purpose": "Exaggerated running strides for power and elastic stiffness.",
+   "how": [
+    "From a jog, push off powerfully into long, high strides, hang in the air, land under the hips.",
+    "20–30 m, walk back."
+   ],
+   "cues": [
+    "Push the ground behind you",
+    "Tall posture"
+   ],
+   "mistakes": [
+    "Overstriding / heel landing"
+   ],
+   "start": "3×20 m",
+   "progress": "3×30 m",
+   "easier": "Skipping for height",
+   "harder": "Longer distance"
+  }
+ },
+ "weeks": [
+  {
+   "code": "A1",
+   "zone_set": "v1",
+   "phase": "Astra block",
+   "deload": false,
+   "start": "2026-11-09",
+   "planned_run_km": 39.5
+  },
+  {
+   "code": "A2",
+   "zone_set": "v1",
+   "phase": "Astra block",
+   "deload": false,
+   "start": "2026-11-16",
+   "planned_run_km": 35
+  },
+  {
+   "code": "A3",
+   "zone_set": "v1",
+   "phase": "Astra block",
+   "deload": false,
+   "start": "2026-11-23",
+   "planned_run_km": 37.1
+  },
+  {
+   "code": "R1",
+   "zone_set": "v1",
+   "phase": "Recovery",
+   "deload": true,
+   "start": "2026-11-30",
+   "planned_run_km": 21
+  },
+  {
+   "code": "R2",
+   "zone_set": "v1",
+   "phase": "Recovery",
+   "deload": false,
+   "start": "2026-12-07",
+   "planned_run_km": 32
+  },
+  {
+   "code": "B1",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": false,
+   "start": "2026-12-14",
+   "planned_run_km": 36
+  },
+  {
+   "code": "B2",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": false,
+   "start": "2026-12-21",
+   "planned_run_km": 38
+  },
+  {
+   "code": "B3",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": false,
+   "start": "2026-12-28",
+   "planned_run_km": 40.5
+  },
+  {
+   "code": "B4",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": true,
+   "start": "2027-01-04",
+   "planned_run_km": 34
+  },
+  {
+   "code": "B5",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": false,
+   "start": "2027-01-11",
+   "planned_run_km": 44
+  },
+  {
+   "code": "B6",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": false,
+   "start": "2027-01-18",
+   "planned_run_km": 45.5
+  },
+  {
+   "code": "B7",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": false,
+   "start": "2027-01-25",
+   "planned_run_km": 48.5
+  },
+  {
+   "code": "B8",
+   "zone_set": "v1",
+   "phase": "Base",
+   "deload": true,
+   "start": "2027-02-01",
+   "planned_run_km": 34
+  },
+  {
+   "code": "B9",
+   "zone_set": "v2",
+   "phase": "Base",
+   "deload": false,
+   "start": "2027-02-08",
+   "planned_run_km": 50.5
+  },
+  {
+   "code": "B10",
+   "zone_set": "v2",
+   "phase": "Base",
+   "deload": false,
+   "start": "2027-02-15",
+   "planned_run_km": 54.5
+  },
+  {
+   "code": "B11",
+   "zone_set": "v2",
+   "phase": "Base",
+   "deload": true,
+   "start": "2027-02-22",
+   "planned_run_km": 40
+  },
+  {
+   "code": "S1",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-03-01",
+   "planned_run_km": 52
+  },
+  {
+   "code": "S2",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-03-08",
+   "planned_run_km": 57
+  },
+  {
+   "code": "S3",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-03-15",
+   "planned_run_km": 53
+  },
+  {
+   "code": "S4",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": true,
+   "start": "2027-03-22",
+   "planned_run_km": 41
+  },
+  {
+   "code": "S5",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-03-29",
+   "planned_run_km": 58
+  },
+  {
+   "code": "S6",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-04-05",
+   "planned_run_km": 56
+  },
+  {
+   "code": "S7",
+   "zone_set": "v2",
+   "phase": "Build",
+   "deload": true,
+   "start": "2027-04-12",
+   "planned_run_km": 45.1
+  },
+  {
+   "code": "S8",
+   "zone_set": "v3",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-04-19",
+   "planned_run_km": 52
+  },
+  {
+   "code": "S9",
+   "zone_set": "v3",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-04-26",
+   "planned_run_km": 60
+  },
+  {
+   "code": "S10",
+   "zone_set": "v3",
+   "phase": "Build",
+   "deload": true,
+   "start": "2027-05-03",
+   "planned_run_km": 45
+  },
+  {
+   "code": "S11",
+   "zone_set": "v3",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-05-10",
+   "planned_run_km": 59
+  },
+  {
+   "code": "S12",
+   "zone_set": "v3",
+   "phase": "Build",
+   "deload": false,
+   "start": "2027-05-17",
+   "planned_run_km": 53
+  },
+  {
+   "code": "T1",
+   "zone_set": "v3",
+   "phase": "Taper",
+   "deload": false,
+   "start": "2027-05-24",
+   "planned_run_km": 46
+  },
+  {
+   "code": "T2",
+   "zone_set": "v3",
+   "phase": "Taper",
+   "deload": false,
+   "start": "2027-05-31",
+   "planned_run_km": 36
+  },
+  {
+   "code": "T3",
+   "zone_set": "v3",
+   "phase": "Taper",
+   "deload": false,
+   "start": "2027-06-07",
+   "planned_run_km": 58.2
+  }
+ ],
+ "sessions": [
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 66,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2026-11-09",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "status_hint": "completed (Strava 20914544144)",
+   "id": "2026-11-09-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_P0",
+   "title": "Strength A – Astra block",
+   "est_duration_min": 50,
+   "date": "2026-11-09",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-09-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-11-10",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-10-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Astra pace: 3×2 km @ Astra pace / 2 min jog",
+   "distance_km": 9.5,
+   "est_duration_min": 77,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "HMP",
+     "repeat": 3,
+     "distance_km": 2,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.1
+    }
+   ],
+   "summary": "Astra pace: 3×2 km @ Astra pace / 2 min jog",
+   "rpe": "6–8",
+   "date": "2026-11-11",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-11-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_P0",
+   "title": "Strength B – Astra block (short)",
+   "est_duration_min": 20,
+   "date": "2026-11-11",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-11-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km + 4×20 s strides",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5.5
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 4,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 6 km + 4×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-11-13",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-13-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 16 km, last 4 @ Astra pace",
+   "distance_km": 16,
+   "est_duration_min": 129,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 12
+    },
+    {
+     "kind": "work",
+     "zone": "HMP",
+     "repeat": 1,
+     "distance_km": 4
+    }
+   ],
+   "summary": "Long 16 km, last 4 @ Astra pace",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2026-11-14",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "A1",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-14-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2026-11-16",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-16-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_P0",
+   "title": "Strength A – Astra block",
+   "est_duration_min": 50,
+   "date": "2026-11-16",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-16-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-11-17",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-17-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo kms: 5×1 km @ tempo / 90 s jog",
+   "distance_km": 9,
+   "est_duration_min": 71,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 5,
+     "distance_km": 1,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.4
+    }
+   ],
+   "summary": "Tempo kms: 5×1 km @ tempo / 90 s jog",
+   "rpe": "6–8",
+   "date": "2026-11-18",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-18-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_P0",
+   "title": "Strength B – Astra block (short)",
+   "est_duration_min": 20,
+   "date": "2026-11-18",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-18-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km + 4×20 s strides",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5.5
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 4,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 6 km + 4×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-11-20",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-20-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 13 km, km 9–11 @ Astra pace",
+   "distance_km": 13,
+   "est_duration_min": 105,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 8
+    },
+    {
+     "kind": "work",
+     "zone": "HMP",
+     "repeat": 1,
+     "distance_km": 3
+    },
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 2
+    }
+   ],
+   "summary": "Long 13 km, km 9–11 @ Astra pace",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2026-11-21",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "A2",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-21-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2026-11-23",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "A3",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-23-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "ACT",
+   "title": "Activation only (race week)",
+   "est_duration_min": 15,
+   "date": "2026-11-23",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "A3",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-23-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Race-pace kms: 3×1 km @ Astra pace / 90 s jog",
+   "distance_km": 6,
+   "est_duration_min": 52,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "HMP",
+     "repeat": 3,
+     "distance_km": 1,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1
+    }
+   ],
+   "summary": "Race-pace kms: 3×1 km @ Astra pace / 90 s jog",
+   "rpe": "6–8",
+   "date": "2026-11-25",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "A3",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-25-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 4 km + 4×20 s strides",
+   "distance_km": 4,
+   "est_duration_min": 34,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 3.5
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 4,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 4 km + 4×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-11-27",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "A3",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-27-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Optional: rest or 15 min shake-out",
+   "distance_km": 2,
+   "est_duration_min": 15,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "duration_s": 900
+    }
+   ],
+   "summary": "Optional 15 min very easy + 3 strides",
+   "rpe": "2",
+   "optional": true,
+   "date": "2026-11-28",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "A3",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-28-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "race",
+   "title": "ASTRA HALF MARATHON (Checkpoint 1)",
+   "distance_km": 21.1,
+   "est_duration_min": 163,
+   "segments": [
+    {
+     "kind": "race",
+     "zone": "RACE",
+     "repeat": 1,
+     "distance_km": 5,
+     "note": "km 1–5 @ ~7:40/km"
+    },
+    {
+     "kind": "race",
+     "zone": "HMP",
+     "repeat": 1,
+     "distance_km": 11,
+     "note": "km 6–16 @ 7:25–7:30"
+    },
+    {
+     "kind": "race",
+     "zone": "RACE",
+     "repeat": 1,
+     "distance_km": 5.1,
+     "note": "km 17–21.1: push only if HR <178 and knee ≤3/10"
+    }
+   ],
+   "summary": "Goal sub-2:40, stretch 2:36. Gel at ~45 min and ~1:30. If knee >3/10, ease to 7:45 and finish.",
+   "rpe": "8–9",
+   "date": "2026-11-29",
+   "weekday": "Sun",
+   "slot": "AM",
+   "week": "A3",
+   "phase": "Astra block",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-11-29-AM-run"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-12-01",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "R1",
+   "phase": "Recovery",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2026-12-01-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 5 km",
+   "distance_km": 5,
+   "est_duration_min": 41,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5
+    }
+   ],
+   "summary": "Easy 5 km",
+   "rpe": "3–4",
+   "date": "2026-12-02",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "R1",
+   "phase": "Recovery",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2026-12-02-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "L_P1",
+   "title": "Light full-body (recovery)",
+   "est_duration_min": 30,
+   "date": "2026-12-02",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "R1",
+   "phase": "Recovery",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2026-12-02-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2026-12-04",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "R1",
+   "phase": "Recovery",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2026-12-04-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 10 km easy",
+   "distance_km": 10,
+   "est_duration_min": 82,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 10
+    }
+   ],
+   "summary": "Long 10 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2026-12-05",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "R1",
+   "phase": "Recovery",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2026-12-05-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2026-12-07",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-07-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "L_P1",
+   "title": "Light full-body (recovery)",
+   "est_duration_min": 30,
+   "date": "2026-12-07",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-07-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-12-08",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-08-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-12-09",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-09-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "L_P1",
+   "title": "Light full-body (recovery)",
+   "est_duration_min": 30,
+   "date": "2026-12-09",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-09-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2026-12-11",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-11-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 13 km easy",
+   "distance_km": 13,
+   "est_duration_min": 107,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 13
+    }
+   ],
+   "summary": "Long 13 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2026-12-12",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "R2",
+   "phase": "Recovery",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-12-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-12-14",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-14-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B1",
+   "title": "Strength A – Foundation",
+   "est_duration_min": 55,
+   "date": "2026-12-14",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-14-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-12-15",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-15-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Hills: 8×45 s @ hard uphill effort / 90 s jog down",
+   "distance_km": 8,
+   "est_duration_min": 68,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "H",
+     "repeat": 8,
+     "duration_s": 45,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 4.1
+    }
+   ],
+   "summary": "Hills: 8×45 s @ hard uphill effort / 90 s jog down",
+   "rpe": "6–8",
+   "date": "2026-12-16",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-16-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B1",
+   "title": "Strength B – Foundation",
+   "est_duration_min": 40,
+   "date": "2026-12-16",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-16-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2026-12-18",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-18-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 15 km easy",
+   "distance_km": 15,
+   "est_duration_min": 124,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 15
+    }
+   ],
+   "summary": "Long 15 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2026-12-19",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B1",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-19-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-12-21",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-21-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B1",
+   "title": "Strength A – Foundation",
+   "est_duration_min": 55,
+   "date": "2026-12-21",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-21-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-12-22",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-22-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Hills: 10×45 s @ hard uphill effort / 90 s jog down",
+   "distance_km": 9,
+   "est_duration_min": 77,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "H",
+     "repeat": 10,
+     "duration_s": 45,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 4.6
+    }
+   ],
+   "summary": "Hills: 10×45 s @ hard uphill effort / 90 s jog down",
+   "rpe": "6–8",
+   "date": "2026-12-23",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-23-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B1",
+   "title": "Strength B – Foundation",
+   "est_duration_min": 40,
+   "date": "2026-12-23",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-23-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2026-12-25",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-25-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 16 km easy",
+   "distance_km": 16,
+   "est_duration_min": 132,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 16
+    }
+   ],
+   "summary": "Long 16 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2026-12-26",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B2",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-26-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2026-12-28",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-28-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B1",
+   "title": "Strength A – Foundation",
+   "est_duration_min": 55,
+   "date": "2026-12-28",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-28-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2026-12-29",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-29-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Fartlek: 8×2 min @ tempo / 1 min jog",
+   "distance_km": 9,
+   "est_duration_min": 74,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 8,
+     "duration_s": 120,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 60
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 4.0
+    }
+   ],
+   "summary": "Fartlek: 8×2 min @ tempo / 1 min jog",
+   "rpe": "6–8",
+   "date": "2026-12-30",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-30-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B1",
+   "title": "Strength B – Foundation",
+   "est_duration_min": 40,
+   "date": "2026-12-30",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2026-12-30-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-01-01",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-01-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 17.5 km easy",
+   "distance_km": 17.5,
+   "est_duration_min": 144,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 17.5
+    }
+   ],
+   "summary": "Long 17.5 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-01-02",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B3",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-02-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km + 6×20 s strides",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 6 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-01-04",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-04-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B1",
+   "title": "Strength A – Foundation (deload: half the sets)",
+   "est_duration_min": 55,
+   "date": "2027-01-04",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-04-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-01-05",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-05-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Brisk: 6×1 min @ tempo / 1 min jog",
+   "distance_km": 8,
+   "est_duration_min": 66,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 6,
+     "duration_s": 60,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 60
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 4.6
+    }
+   ],
+   "summary": "Brisk: 6×1 min @ tempo / 1 min jog",
+   "rpe": "6–8",
+   "date": "2027-01-06",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-06-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B1",
+   "title": "Strength B – Foundation (deload: half the sets)",
+   "est_duration_min": 40,
+   "date": "2027-01-06",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-06-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-01-08",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-08-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 14 km easy",
+   "distance_km": 14,
+   "est_duration_min": 116,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 14
+    }
+   ],
+   "summary": "Long 14 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-01-09",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B4",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-01-09-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 66,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-01-11",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-11-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength",
+   "est_duration_min": 60,
+   "date": "2027-01-11",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-11-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-01-12",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-12-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo: 2×10 min @ tempo / 3 min jog",
+   "distance_km": 10,
+   "est_duration_min": 83,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 2,
+     "duration_s": 600,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 180
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 4.9
+    }
+   ],
+   "summary": "Tempo: 2×10 min @ tempo / 3 min jog",
+   "rpe": "6–8",
+   "date": "2027-01-13",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-13-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power",
+   "est_duration_min": 50,
+   "date": "2027-01-13",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-13-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-01-15",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-15-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 19 km easy",
+   "distance_km": 19,
+   "est_duration_min": 157,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 19
+    }
+   ],
+   "summary": "Long 19 km easy. Start fuelling: 30–40 g carbs per hour",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-01-16",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B5",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-16-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 66,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-01-18",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-18-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength",
+   "est_duration_min": 60,
+   "date": "2027-01-18",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-18-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-01-19",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-19-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo: 3×10 min @ tempo / 3 min jog",
+   "distance_km": 10,
+   "est_duration_min": 81,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 3,
+     "duration_s": 600,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 180
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 3.1
+    }
+   ],
+   "summary": "Tempo: 3×10 min @ tempo / 3 min jog",
+   "rpe": "6–8",
+   "date": "2027-01-20",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-20-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power",
+   "est_duration_min": 50,
+   "date": "2027-01-20",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-20-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-01-22",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-22-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 20.5 km easy",
+   "distance_km": 20.5,
+   "est_duration_min": 169,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 20.5
+    }
+   ],
+   "summary": "Long 20.5 km easy. Fuel 30–40 g/h",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-01-23",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B6",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-23-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 66,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-01-25",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-25-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength",
+   "est_duration_min": 60,
+   "date": "2027-01-25",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-25-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-01-26",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-26-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Cruise intervals: 4×1.6 km @ tempo / 2 min jog",
+   "distance_km": 11,
+   "est_duration_min": 86,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 4,
+     "distance_km": 1.6,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2.0
+    }
+   ],
+   "summary": "Cruise intervals: 4×1.6 km @ tempo / 2 min jog",
+   "rpe": "6–8",
+   "date": "2027-01-27",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-27-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power",
+   "est_duration_min": 50,
+   "date": "2027-01-27",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-27-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 58,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-01-29",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-29-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 22.5 km easy",
+   "distance_km": 22.5,
+   "est_duration_min": 186,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 22.5
+    }
+   ],
+   "summary": "Long 22.5 km easy. First run past 21 km: log knee score",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-01-30",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B7",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v1",
+   "id": "2027-01-30-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-02-01",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-01-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength (deload: half the sets)",
+   "est_duration_min": 60,
+   "date": "2027-02-01",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-01-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-02-02",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-02-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 66,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-02-03",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-03-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power (deload: half the sets)",
+   "est_duration_min": 50,
+   "date": "2027-02-03",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-03-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 50,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-02-05",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-05-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "test",
+   "title": "10K time trial (Checkpoint 2)",
+   "distance_km": 14,
+   "est_duration_min": 113,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2.5,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks + 4 strides"
+    },
+    {
+     "kind": "work",
+     "zone": "RACE",
+     "repeat": 1,
+     "distance_km": 10,
+     "note": "Time trial: first 2 km at T pace (7:00–7:10), then hold or speed up; flat route, run at 05:00"
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.5
+    }
+   ],
+   "summary": "10K time trial on a flat route. Target 1:06:30 or faster. Enter the result in the app to update paces.",
+   "rpe": "9",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-02-06",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B8",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v1",
+   "id": "2027-02-06-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-02-08",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-08-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength",
+   "est_duration_min": 60,
+   "date": "2027-02-08",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-08-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-02-09",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-09-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo: 25 min continuous @ tempo",
+   "distance_km": 11,
+   "est_duration_min": 83,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 1,
+     "duration_s": 1500
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5.3
+    }
+   ],
+   "summary": "Tempo: 25 min continuous @ tempo",
+   "rpe": "6–7",
+   "date": "2027-02-10",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-10-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power",
+   "est_duration_min": 50,
+   "date": "2027-02-10",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-10-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 56,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-02-12",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-12-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 24.5 km easy",
+   "distance_km": 24.5,
+   "est_duration_min": 196,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 24.5
+    }
+   ],
+   "summary": "Long 24.5 km easy. Fuel 40–50 g/h; log knee score",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-02-13",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B9",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-13-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-02-15",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-15-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength",
+   "est_duration_min": 60,
+   "date": "2027-02-15",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-15-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-02-16",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-16-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Cruise intervals: 5×1.6 km @ tempo / 90 s jog",
+   "distance_km": 12,
+   "est_duration_min": 89,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 5,
+     "distance_km": 1.6,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.3
+    }
+   ],
+   "summary": "Cruise intervals: 5×1.6 km @ tempo / 90 s jog",
+   "rpe": "6–8",
+   "date": "2027-02-17",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-17-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power",
+   "est_duration_min": 50,
+   "date": "2027-02-17",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-17-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-02-19",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-19-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 26.5 km easy",
+   "distance_km": 26.5,
+   "est_duration_min": 212,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 26.5
+    }
+   ],
+   "summary": "Long 26.5 km easy. Fuel 40–50 g/h",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-02-20",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B10",
+   "phase": "Base",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-02-20-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 57,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-02-22",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-22-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_B2",
+   "title": "Strength A – Max strength (deload: half the sets)",
+   "est_duration_min": 60,
+   "date": "2027-02-22",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-22-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-02-23",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-23-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "10K-pace kms: 5×1 km @ 10K pace / 2 min jog",
+   "distance_km": 9,
+   "est_duration_min": 68,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "I",
+     "repeat": 5,
+     "distance_km": 1,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.1
+    }
+   ],
+   "summary": "10K-pace kms: 5×1 km @ 10K pace / 2 min jog",
+   "rpe": "6–8",
+   "date": "2027-02-24",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-24-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_B2",
+   "title": "Strength B – Power (deload: half the sets)",
+   "est_duration_min": 50,
+   "date": "2027-02-24",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-24-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 48,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-02-26",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-26-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 18 km easy",
+   "distance_km": 18,
+   "est_duration_min": 144,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 18
+    }
+   ],
+   "summary": "Long 18 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-02-27",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "B11",
+   "phase": "Base",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-02-27-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-03-01",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-01-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-03-01",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-01-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-03-02",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-02-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "10K-pace kms: 6×1 km @ 10K pace / 2 min jog",
+   "distance_km": 12,
+   "est_duration_min": 91,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "I",
+     "repeat": 6,
+     "distance_km": 1,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2.9
+    }
+   ],
+   "summary": "10K-pace kms: 6×1 km @ 10K pace / 2 min jog",
+   "rpe": "6–8",
+   "date": "2027-03-03",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-03-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-03-03",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-03-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-03-05",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-05-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 24 km, last 5 @ MP",
+   "distance_km": 24,
+   "est_duration_min": 187,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 19
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 5
+    }
+   ],
+   "summary": "Long 24 km, last 5 @ MP. Fuel 45–60 g/h",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-03-06",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S1",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-06-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-03-08",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-08-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-03-08",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-08-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-03-09",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-09-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo: 2×4 km @ tempo / 3 min jog",
+   "distance_km": 13,
+   "est_duration_min": 98,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 2,
+     "distance_km": 4,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 180
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2.7
+    }
+   ],
+   "summary": "Tempo: 2×4 km @ tempo / 3 min jog",
+   "rpe": "6–8",
+   "date": "2027-03-10",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-10-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-03-10",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-10-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-03-12",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-12-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 28 km easy",
+   "distance_km": 28,
+   "est_duration_min": 224,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 28
+    }
+   ],
+   "summary": "Long 28 km easy. Fuel 45–60 g/h",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-03-13",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S2",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-13-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-03-15",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-15-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-03-15",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-15-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-03-16",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-16-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP run: 8 km @ MP",
+   "distance_km": 13,
+   "est_duration_min": 97,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 8
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 3
+    }
+   ],
+   "summary": "MP run: 8 km @ MP",
+   "rpe": "6–7",
+   "date": "2027-03-17",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-17-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-03-17",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-17-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-03-19",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-19-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 24 km, last 8 @ MP",
+   "distance_km": 24,
+   "est_duration_min": 185,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 16
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Long 24 km, last 8 @ MP",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-03-20",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S3",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-20-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 57,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-03-22",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S4",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-03-22-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain (deload: half the sets)",
+   "est_duration_min": 45,
+   "date": "2027-03-22",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S4",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-03-22-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-03-23",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S4",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-03-23-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "10K-pace kms: 5×1 km @ 10K pace / 2 min jog",
+   "distance_km": 10,
+   "est_duration_min": 76,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "I",
+     "repeat": 5,
+     "distance_km": 1,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2.1
+    }
+   ],
+   "summary": "10K-pace kms: 5×1 km @ 10K pace / 2 min jog",
+   "rpe": "6–8",
+   "date": "2027-03-24",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S4",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-03-24-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 48,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-03-26",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S4",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-03-26-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 18 km easy",
+   "distance_km": 18,
+   "est_duration_min": 144,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 18
+    }
+   ],
+   "summary": "Long 18 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-03-27",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S4",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-03-27-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-03-29",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-29-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-03-29",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-29-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-03-30",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-30-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo: 3×3 km @ tempo / 3 min jog",
+   "distance_km": 13,
+   "est_duration_min": 97,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 3,
+     "distance_km": 3,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 180
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.3
+    }
+   ],
+   "summary": "Tempo: 3×3 km @ tempo / 3 min jog",
+   "rpe": "6–8",
+   "date": "2027-03-31",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-31-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-03-31",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-03-31-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-04-02",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-02-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 29 km easy",
+   "distance_km": 29,
+   "est_duration_min": 232,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 29
+    }
+   ],
+   "summary": "Long 29 km easy. Race-day fuel rate from now on (60 g/h, up to 90 if tolerated)",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-04-03",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S5",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-03-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 65,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-04-05",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-05-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-04-05",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-05-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-04-06",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-06-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP run: 10 km @ MP",
+   "distance_km": 14,
+   "est_duration_min": 103,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 10
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2
+    }
+   ],
+   "summary": "MP run: 10 km @ MP",
+   "rpe": "6–7",
+   "date": "2027-04-07",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-07-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-04-07",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-07-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-04-09",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-09-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 26 km, km 15–24 @ MP",
+   "distance_km": 26,
+   "est_duration_min": 199,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 14
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 10
+    },
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 2
+    }
+   ],
+   "summary": "Long 26 km, km 15–24 @ MP",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-04-10",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S6",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v2",
+   "id": "2027-04-10-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 57,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-04-12",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S7",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-04-12-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain (deload: half the sets)",
+   "est_duration_min": 45,
+   "date": "2027-04-12",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S7",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-04-12-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-04-13",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S7",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-04-13-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo kms: 4×1 km @ tempo / 90 s jog",
+   "distance_km": 9,
+   "est_duration_min": 69,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 4,
+     "distance_km": 1,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2.5
+    }
+   ],
+   "summary": "Tempo kms: 4×1 km @ tempo / 90 s jog",
+   "rpe": "6–8",
+   "date": "2027-04-14",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S7",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-04-14-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 5 km",
+   "distance_km": 5,
+   "est_duration_min": 40,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5
+    }
+   ],
+   "summary": "Easy 5 km",
+   "rpe": "3–4",
+   "date": "2027-04-16",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S7",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-04-16-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "test",
+   "title": "Half-marathon time trial (Checkpoint 3)",
+   "distance_km": 24.1,
+   "est_duration_min": 193,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "RACE",
+     "repeat": 1,
+     "distance_km": 21.1,
+     "note": "HM time trial: km 1–5 @ 6:55–7:00, then hold; target 2:24 or faster"
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1
+    }
+   ],
+   "summary": "HM time trial, flat route, 04:30 start, race fuel. Target 2:24 or faster.",
+   "rpe": "9",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-04-17",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S7",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v2",
+   "id": "2027-04-17-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 47,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-04-19",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-19-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-04-19",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-19-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-04-20",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-20-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 10 km + 6×20 s strides",
+   "distance_km": 10,
+   "est_duration_min": 80,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 9.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 10 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-04-21",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-21-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-04-21",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-21-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 63,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-04-23",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-23-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 28 km easy",
+   "distance_km": 28,
+   "est_duration_min": 221,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 28
+    }
+   ],
+   "summary": "Long 28 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-04-24",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S8",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-24-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-04-26",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-26-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-04-26",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-26-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-04-27",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-27-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Tempo: 2×5 km @ tempo / 3 min jog",
+   "distance_km": 14,
+   "est_duration_min": 102,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 2,
+     "distance_km": 5,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 180
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.7
+    }
+   ],
+   "summary": "Tempo: 2×5 km @ tempo / 3 min jog",
+   "rpe": "6–8",
+   "date": "2027-04-28",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-28-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-04-28",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-28-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 63,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-04-30",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-04-30-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 30 km, last 6 @ MP",
+   "distance_km": 30,
+   "est_duration_min": 232,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 24
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Long 30 km, last 6 @ MP. Peak long run",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-05-01",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S9",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-01-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km + 6×20 s strides",
+   "distance_km": 7,
+   "est_duration_min": 56,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 7 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-05-03",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S10",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v3",
+   "id": "2027-05-03-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain (deload: half the sets)",
+   "est_duration_min": 45,
+   "date": "2027-05-03",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S10",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v3",
+   "id": "2027-05-03-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-05-04",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S10",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v3",
+   "id": "2027-05-04-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP run: 8 km @ MP",
+   "distance_km": 12,
+   "est_duration_min": 88,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 8
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2
+    }
+   ],
+   "summary": "MP run: 8 km @ MP",
+   "rpe": "6–7",
+   "date": "2027-05-05",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S10",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v3",
+   "id": "2027-05-05-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 47,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-05-07",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S10",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v3",
+   "id": "2027-05-07-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 20 km, last 12 @ MP",
+   "distance_km": 20,
+   "est_duration_min": 148,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 8
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 12
+    }
+   ],
+   "summary": "Long 20 km, last 12 @ MP",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-05-08",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S10",
+   "phase": "Build",
+   "deload_week": true,
+   "zone_set": "v3",
+   "id": "2027-05-08-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-05-10",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-10-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-05-10",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-10-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-05-11",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-11-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "Cruise intervals: 6×1.6 km @ tempo / 90 s jog",
+   "distance_km": 13,
+   "est_duration_min": 97,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "T",
+     "repeat": 6,
+     "distance_km": 1.6,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 90
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1
+    }
+   ],
+   "summary": "Cruise intervals: 6×1.6 km @ tempo / 90 s jog",
+   "rpe": "6–8",
+   "date": "2027-05-12",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-12-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-05-12",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-12-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 63,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-05-14",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-14-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 30 km, last 5 @ MP",
+   "distance_km": 30,
+   "est_duration_min": 232,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 25
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 5
+    }
+   ],
+   "summary": "Long 30 km, last 5 @ MP",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-05-15",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S11",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-15-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km + 6×20 s strides",
+   "distance_km": 8,
+   "est_duration_min": 64,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7.2
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 6,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 8 km + 6×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-05-17",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-17-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_S",
+   "title": "Strength A – Maintain",
+   "est_duration_min": 45,
+   "date": "2027-05-17",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-17-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-05-18",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-18-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP run: 10 km @ MP",
+   "distance_km": 13,
+   "est_duration_min": 94,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 10
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1
+    }
+   ],
+   "summary": "MP run: 10 km @ MP",
+   "rpe": "6–7",
+   "date": "2027-05-19",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-19-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "B_S",
+   "title": "Strength B – Maintain power",
+   "est_duration_min": 40,
+   "date": "2027-05-19",
+   "weekday": "Wed",
+   "slot": "PM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-19-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 8 km",
+   "distance_km": 8,
+   "est_duration_min": 63,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 8
+    }
+   ],
+   "summary": "Easy 8 km",
+   "rpe": "3–4",
+   "date": "2027-05-21",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-21-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 24 km, last 16 @ MP",
+   "distance_km": 24,
+   "est_duration_min": 176,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 8
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 16
+    }
+   ],
+   "summary": "Long 24 km, last 16 @ MP. DRESS REHEARSAL: 04:00 start, race shoes, kit and fuel (Checkpoint 4)",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-05-22",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "S12",
+   "phase": "Build",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-22-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 55,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-05-24",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "T1",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-24-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "A_T1",
+   "title": "Strength – Taper (normal load, low volume)",
+   "est_duration_min": 30,
+   "date": "2027-05-24",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "T1",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-24-PM-strength"
+  },
+  {
+   "category": "martial_arts",
+   "optional": true,
+   "title": "Optional Muay Thai / boxing: technique, RPE ≤6, no hard sparring",
+   "est_duration_min": 60,
+   "date": "2027-05-25",
+   "weekday": "Tue",
+   "slot": "PM",
+   "week": "T1",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-25-PM-martial_arts"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP reps: 3×3 km @ MP / 2 min jog",
+   "distance_km": 12,
+   "est_duration_min": 93,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 3,
+     "distance_km": 3,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1
+    }
+   ],
+   "summary": "MP reps: 3×3 km @ MP / 2 min jog",
+   "rpe": "6–8",
+   "date": "2027-05-26",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "T1",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-26-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 7 km",
+   "distance_km": 7,
+   "est_duration_min": 55,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 7
+    }
+   ],
+   "summary": "Easy 7 km",
+   "rpe": "3–4",
+   "date": "2027-05-28",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "T1",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-28-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 20 km easy",
+   "distance_km": 20,
+   "est_duration_min": 158,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 20
+    }
+   ],
+   "summary": "Long 20 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-05-29",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "T1",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-29-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 47,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-05-31",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "T2",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-31-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "L_T2",
+   "title": "Strength – Taper (light)",
+   "est_duration_min": 25,
+   "date": "2027-05-31",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "T2",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-05-31-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP run: 6 km @ MP",
+   "distance_km": 10,
+   "est_duration_min": 74,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 6
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2
+    }
+   ],
+   "summary": "MP run: 6 km @ MP",
+   "rpe": "6–7",
+   "date": "2027-06-02",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "T2",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-02-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 6 km",
+   "distance_km": 6,
+   "est_duration_min": 47,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 6
+    }
+   ],
+   "summary": "Easy 6 km",
+   "rpe": "3–4",
+   "date": "2027-06-04",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "T2",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-04-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "long",
+   "title": "Long 14 km easy",
+   "distance_km": 14,
+   "est_duration_min": 110,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "L",
+     "repeat": 1,
+     "distance_km": 14
+    }
+   ],
+   "summary": "Long 14 km easy",
+   "rpe": "4–6",
+   "post_run_log": [
+    "knee_pain_0_10",
+    "bunion_pain_0_10",
+    "rpe",
+    "fuel_g_carbs"
+   ],
+   "date": "2027-06-05",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "T2",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-05-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 5 km",
+   "distance_km": 5,
+   "est_duration_min": 39,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 5
+    }
+   ],
+   "summary": "Easy 5 km",
+   "rpe": "3–4",
+   "date": "2027-06-07",
+   "weekday": "Mon",
+   "slot": "AM",
+   "week": "T3",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-07-AM-run"
+  },
+  {
+   "category": "strength",
+   "template": "MOB",
+   "title": "Mobility only (race week)",
+   "est_duration_min": 15,
+   "date": "2027-06-07",
+   "weekday": "Mon",
+   "slot": "PM",
+   "week": "T3",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-07-PM-strength"
+  },
+  {
+   "category": "run",
+   "kind": "quality",
+   "title": "MP reps: 2×1.6 km @ MP / 2 min jog",
+   "distance_km": 7,
+   "est_duration_min": 55,
+   "segments": [
+    {
+     "kind": "warmup",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 2,
+     "note": "Then 5 min drills: leg swings, walking lunges, A-skips, butt kicks"
+    },
+    {
+     "kind": "work",
+     "zone": "MP",
+     "repeat": 2,
+     "distance_km": 1.6,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 120
+     }
+    },
+    {
+     "kind": "cooldown",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 1.6
+    }
+   ],
+   "summary": "MP reps: 2×1.6 km @ MP / 2 min jog",
+   "rpe": "6–8",
+   "date": "2027-06-09",
+   "weekday": "Wed",
+   "slot": "AM",
+   "week": "T3",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-09-AM-run"
+  },
+  {
+   "category": "run",
+   "kind": "easy",
+   "title": "Easy 4 km + 4×20 s strides",
+   "distance_km": 4,
+   "est_duration_min": 32,
+   "segments": [
+    {
+     "kind": "steady",
+     "zone": "E",
+     "repeat": 1,
+     "distance_km": 3.5
+    },
+    {
+     "kind": "strides",
+     "zone": "ST",
+     "repeat": 4,
+     "duration_s": 20,
+     "recovery": {
+      "zone": "REC",
+      "duration_s": 50
+     },
+     "note": "Last 1 km of the run, on flat ground"
+    }
+   ],
+   "summary": "Easy 4 km + 4×20 s strides",
+   "rpe": "3–4",
+   "date": "2027-06-11",
+   "weekday": "Fri",
+   "slot": "AM",
+   "week": "T3",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-11-AM-run"
+  },
+  {
+   "category": "rest",
+   "title": "Rest, carb-heavy meals, kit ready",
+   "date": "2027-06-12",
+   "weekday": "Sat",
+   "slot": "AM",
+   "week": "T3",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-12-AM-rest"
+  },
+  {
+   "category": "run",
+   "kind": "race",
+   "title": "JAKIM FULL MARATHON",
+   "distance_km": 42.2,
+   "est_duration_min": 304,
+   "segments": [
+    {
+     "kind": "race",
+     "zone": "RACE",
+     "repeat": 1,
+     "distance_km": 5,
+     "note": "km 1–5 @ 7:15"
+    },
+    {
+     "kind": "race",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 25,
+     "note": "km 6–30 @ 7:05 (7:00–7:10)"
+    },
+    {
+     "kind": "race",
+     "zone": "MP",
+     "repeat": 1,
+     "distance_km": 12.2,
+     "note": "km 31–42.2 hold 7:05; push only if HR and knee allow"
+    }
+   ],
+   "summary": "Goal 4:59. Carbs 60–90 g/h from the start, drink at aid stations with sodium.",
+   "rpe": "8–9",
+   "date": "2027-06-13",
+   "weekday": "Sun",
+   "slot": "AM",
+   "week": "T3",
+   "phase": "Taper",
+   "deload_week": false,
+   "zone_set": "v3",
+   "id": "2027-06-13-AM-run"
+  }
+ ]
+}
