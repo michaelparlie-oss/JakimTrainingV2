@@ -8,7 +8,7 @@ export default async function Changes() {
   return (
     <>
       <PageTitle title="Plan changes" sub="The plan file is never edited. These changes sit on top of it, and each one can be undone." back="/more" />
-      <ul className="space-y-2">
+      <ul className="lg:max-w-3xl space-y-2">
         {rows.map((r) => (
           <li key={r.id} className={`card ${r.undone ? "opacity-50" : ""}`}>
             <div className="flex items-start justify-between gap-2">

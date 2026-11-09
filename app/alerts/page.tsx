@@ -13,7 +13,7 @@ export default async function Alerts() {
   return (
     <>
       <PageTitle title="Alerts" sub="Safety checks run after every sync, log and plan change." back="/more" />
-      <div className="space-y-2">
+      <div className="lg:max-w-3xl space-y-2">
         {open.map((a) => <AlertCard key={a.id} a={a} />)}
         {!open.length && <p className="card text-center text-sm text-muted">No open alerts. Nice.</p>}
       </div>

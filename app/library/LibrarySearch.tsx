@@ -7,8 +7,8 @@ export function LibrarySearch({ list }: { list: { key: string; name: string; cat
   const f = list.filter((x) => `${x.name} ${x.category} ${x.purpose} ${x.equipment}`.toLowerCase().includes(q.toLowerCase()));
   return (
     <>
-      <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search: squat, calf, knee…" className="input mb-3" />
-      <ul className="space-y-2">
+      <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search: squat, calf, knee…" className="input mb-4 lg:max-w-md" />
+      <ul className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
         {f.map((x) => (
           <li key={x.key}>
             <Link href={`/library/${x.key}`} className="card block">

@@ -37,6 +37,8 @@ export default async function SessionPage({ params }: { params: Promise<{ id: st
     <>
       <PageTitle title={s.category === "strength" ? s.strength!.name : s.title} back={`/?date=${s.date}`} sub={<>{weekdayShort(s.date)} {fmtDate(s.date, { day: "numeric", month: "long", year: "numeric" })} · {s.slot} · Week {s.week}{s.date !== s.plan_date ? ` · planned for ${weekdayShort(s.plan_date)} ${fmtDate(s.plan_date)}` : ""}</>} />
 
+      <div className="grid gap-5 lg:grid-cols-2 lg:items-start lg:gap-6">
+      <div className="min-w-0 space-y-4">
       {s.category === "strength" && <StrengthCard s={s} />}
 
       {s.category === "run" && (
@@ -53,14 +55,21 @@ export default async function SessionPage({ params }: { params: Promise<{ id: st
           <ZoneBasis label={s.zonesR.label} />
         </section>
       )}
-
+      {s.kind !== "race" && (
+        <AdjustPanel id={s.id} date={s.date} category={s.category} skipped={s.skipped} distanceKm={s.distance_km} hasOverride={!!s.override} minDate={c.today < s.date ? c.today : s.date} maxDate={maxDate} />
+      )}
+      </div>
+      <div className="min-w-0 space-y-4">
+      {s.category === "run" && !a && (
+        <section className="card text-center text-sm text-muted">No Strava run linked yet. It appears here after you sync{s.date > c.today ? " on the day" : ""}.</section>
+      )}
       {a && s.match && (
-        <section className="card mt-4">
+        <section className="card">
           <h2 className="h2">How it went</h2>
           <p className="text-sm text-muted">
             <a className="underline" href={`https://www.strava.com/activities/${a.id}`} target="_blank" rel="noreferrer">{a.name ?? "Strava run"}</a> · {weekdayShort(a.local_date)} {fmtDate(a.local_date)} · {fmtKm(a.distance_m / 1000)} · {fmtDuration(a.moving_time_s)} moving · {fmtPace(a.moving_time_s / (a.distance_m / 1000))} /km{a.avg_hr ? ` · avg ♥ ${Math.round(a.avg_hr)}` : " · no HR data"}
           </p>
-          <div className="mt-3 flex justify-around">
+          <div className="mt-4 flex justify-around rounded-xl bg-slate-50 py-3">
             <ScoreRing score={s.match.overall_score} label="overall" />
             <ScoreRing score={s.match.distance_score} label="distance" />
             <ScoreRing score={s.match.hr_score} label="heart rate" />
@@ -72,16 +81,16 @@ export default async function SessionPage({ params }: { params: Promise<{ id: st
           {s.details && s.details.reps.reps.length > 0 && (
             <div className="mt-4 overflow-x-auto">
               <h3 className="label mb-1">Reps (found from {s.details.reps.method === "laps" ? "watch laps" : s.details.reps.method === "streams" ? "the GPS stream" : "position on the route"})</h3>
-              <table className="w-full text-sm">
-                <thead><tr className="text-left text-xs text-muted"><th>#</th><th>Target</th><th>Actual</th><th>HR</th><th></th></tr></thead>
+              <table className="tbl rounded-lg border border-line">
+                <thead><tr><th>#</th><th>Target</th><th>Actual</th><th>HR / max</th><th>Result</th></tr></thead>
                 <tbody>
                   {s.details.reps.reps.map((r) => (
-                    <tr key={r.rep_no} className="border-t border-line">
-                      <td className="py-1 pr-2">{r.rep_no}</td>
-                      <td className="pr-2">{fmtPaceRange(r.target_min, r.target_max) ?? r.zone}</td>
+                    <tr key={r.rep_no}>
+                      <td>{r.rep_no}</td>
+                      <td>{fmtPaceRange(r.target_min, r.target_max) ?? r.zone}</td>
                       <td className="font-semibold">{fmtPace(r.pace_s_per_km)} /km</td>
                       <td className={r.hr_flag ? "font-bold text-rose-700" : ""}>{r.avg_hr ? Math.round(r.avg_hr) : "–"}{r.hr_max ? ` / ${r.hr_max}` : ""}</td>
-                      <td>{r.in_range == null ? "" : r.in_range ? "✅" : (r.delta_s ?? 0) < 0 ? `${Math.round(-r.delta_s!)} s fast` : `${Math.round(r.delta_s!)} s slow`}</td>
+                      <td className="whitespace-nowrap">{r.in_range == null ? "" : r.in_range ? "✓ on target" : (r.delta_s ?? 0) < 0 ? `${Math.round(-r.delta_s!)} s fast` : `${Math.round(r.delta_s!)} s slow`}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -100,7 +109,7 @@ export default async function SessionPage({ params }: { params: Promise<{ id: st
       )}
 
       {s.category === "run" && (
-        <section className="card mt-4">
+        <section className="card">
           <h2 className="h2">Strava activity</h2>
           <p className="text-xs text-muted">{s.match?.manual_override ? "You set this link by hand." : "Matched automatically. Change it if the app picked the wrong run."}</p>
           <form action={linkActivity} className="mt-2 flex gap-2">
@@ -118,16 +127,15 @@ export default async function SessionPage({ params }: { params: Promise<{ id: st
       )}
 
       {s.category === "run" && a && (
-        <section className="card mt-4">
+        <section className="card">
           <h2 className="h2">Pain and effort for this run</h2>
           <PainLogForm date={a.local_date} activityId={a.id} />
         </section>
       )}
 
-      {s.kind !== "race" && (
-        <AdjustPanel id={s.id} date={s.date} category={s.category} skipped={s.skipped} distanceKm={s.distance_km} hasOverride={!!s.override} minDate={c.today < s.date ? c.today : s.date} maxDate={maxDate} />
-      )}
-      <p className="mt-4 text-center text-xs text-muted"><Link href="/changes" className="underline">All plan changes</Link></p>
+      </div>
+      </div>
+      <p className="mt-6 text-center text-xs text-muted"><Link href="/changes" className="underline">All plan changes</Link></p>
     </>
   );
 }

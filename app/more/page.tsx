@@ -17,7 +17,7 @@ export default async function More() {
   return (
     <>
       <PageTitle title="More" />
-      <ul className="space-y-2">
+      <ul className="grid gap-2 lg:grid-cols-2">
         {links.map(([href, t, sub]) => (
           <li key={href}><Link href={href} className="card flex items-center justify-between"><span><b>{t}</b><span className="block text-sm text-muted">{sub}</span></span><span className="text-muted">›</span></Link></li>
         ))}

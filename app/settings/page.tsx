@@ -28,6 +28,7 @@ export default async function Settings({ searchParams }: { searchParams: Promise
       {sp.strava === "error" && <p className="mb-3 rounded-lg bg-rose-50 p-3 text-sm">Strava connection failed. Check the client ID, secret and redirect URI.</p>}
       {sp.strava === "scope" && <p className="mb-3 rounded-lg bg-rose-50 p-3 text-sm">Please allow “View data about your private activities” so the app can read your runs.</p>}
 
+      <div className="gap-4 lg:columns-2 [&>section]:break-inside-avoid">
       <section className="card mb-3">
         <h2 className="h2">Strava</h2>
         {tok ? (
@@ -86,6 +87,7 @@ export default async function Settings({ searchParams }: { searchParams: Promise
           <button className="btn btn-danger">Delete</button>
         </form>
       </section>
+      </div>
       <p className="text-center text-xs text-muted">Strava data is used under the <a className="underline" href="https://www.strava.com/legal/api" target="_blank" rel="noreferrer">Strava API Agreement</a>. It stays on this server.</p>
     </>
   );

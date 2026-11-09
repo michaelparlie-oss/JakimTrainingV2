@@ -15,6 +15,7 @@ export default async function Log() {
   return (
     <>
       <PageTitle title="Pain & illness" sub="Knee pain is the main safety signal in your plan." back="/more" />
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6 lg:items-start"><div>
       <section className={`card mb-4 ${fever?.active ? "border-rose-300 bg-rose-50" : ""}`}>
         <h2 className="h2">Ill or feverish?</h2>
         <p className="text-sm text-muted">Plan rule: no running until 24 h fever-free.</p>
@@ -28,6 +29,7 @@ export default async function Log() {
         <p className="text-xs text-muted">Knee ≤ 3/10 that settles by next morning: carry on. Above 3/10, limping or worse next day: the next run becomes 30 min easy or rest.</p>
         <PainLogForm date={todayLocal()} />
       </section>
+      </div><div>
       <h2 className="label mb-2">History</h2>
       <ul className="space-y-1">
         {rows.map((r) => (
@@ -44,6 +46,7 @@ export default async function Log() {
         ))}
         {!rows.length && <li className="text-sm text-muted">Nothing logged yet.</li>}
       </ul>
+      </div></div>
     </>
   );
 }

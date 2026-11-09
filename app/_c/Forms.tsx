@@ -49,7 +49,7 @@ export function PainLogForm({ date, activityId, compact = false }: { date: strin
 export function AdjustPanel({ id, date, category, skipped, distanceKm, hasOverride, minDate, maxDate }: { id: string; date: string; category: string; skipped: boolean; distanceKm: number | null; hasOverride: boolean; minDate: string; maxDate: string }) {
   const [s, act, pending] = useActionState(adjustSession, null);
   return (
-    <section className="card mt-4">
+    <section className="card">
       <h2 className="h2">Change this session</h2>
       <p className="text-xs text-muted">Life happens. Changes apply only to this plan; the JSON plan stays as written and you can undo any change. The app re-checks the rest of your plan after every change.</p>
       <form action={act} className="mt-3 flex items-end gap-2">

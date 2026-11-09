@@ -45,6 +45,7 @@ export function StrengthLogger({ sessionId, items }: { sessionId: string; items:
     <form action={act} className="space-y-3">
       <input type="hidden" name="session" value={sessionId} />
       <p className="text-xs text-muted">Tick each set when done. Weight is pre-filled from last time; ± changes it by 2.5 kg. RPE 7 = about 3 reps left in the tank, 8 = about 2.</p>
+      <div className="grid gap-3 lg:grid-cols-2 lg:gap-4">
       {items.map((it) => (
         <section key={it.key} className="card">
           <div className="flex items-baseline justify-between gap-2">
@@ -60,7 +61,8 @@ export function StrengthLogger({ sessionId, items }: { sessionId: string; items:
           </div>
         </section>
       ))}
-      <div className="sticky bottom-20 z-10">
+      </div>
+      <div className="sticky bottom-20 z-10 lg:bottom-4 lg:mx-auto lg:max-w-md">
         <button className="btn btn-primary w-full shadow-lg" disabled={pending}>{pending ? "Saving…" : "Save session"}</button>
         {s && <p className={`mt-1 rounded-lg bg-white px-2 py-1 text-center text-sm ${s.ok ? "text-emerald-700" : "text-rose-700"}`}>{s.message}</p>}
       </div>

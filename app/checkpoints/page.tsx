@@ -19,7 +19,7 @@ export default async function Checkpoints() {
     <>
       <PageTitle title="Checkpoints" sub={<>Each <Explain term="checkpoint">checkpoint</Explain> resets your paces from what you can actually run.</>} back="/more" />
       <p className="mb-3 text-sm">Current goal: <b>{fmtDuration(goal)}</b> (marathon pace {fmtPace(goal / MARATHON_KM)} /km)</p>
-      <div className="space-y-3">
+      <div className="grid gap-4 lg:grid-cols-2">
         {plan.meta.checkpoints.map((cp) => {
           const { date, session } = checkpointSession(sessions, cp.id as CpId);
           const r = results.find((x) => x.checkpoint_id === cp.id);
