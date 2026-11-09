@@ -60,6 +60,7 @@ export function getDb(): Promise<DB> {
       await ensureSeeded(db);
       return db;
     })().catch((e) => {
+      console.error("[db] could not open the database:", e instanceof Error ? e.message : e);
       g.__jakimDb = undefined;
       throw e;
     });

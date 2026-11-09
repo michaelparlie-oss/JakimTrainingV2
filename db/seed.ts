@@ -28,7 +28,8 @@ export async function seedPlan(db: DB, plan: Plan = loadPlan(), hash = planHash(
   }
   const v = JSON.stringify(hash);
   q.push(db.insert(s.setting).values({ key: "plan_hash", value_json: v }).onConflictDoUpdate({ target: s.setting.key, set: { value_json: v } }));
-  await db.batch(q as never);
+  // Several smaller batches: friendlier to request-size limits on hosted databases.
+  for (let i = 0; i < q.length; i += 60) await db.batch(q.slice(i, i + 60) as never);
   return { sessions: plan.sessions.length, weeks: plan.weeks.length };
 }
 
