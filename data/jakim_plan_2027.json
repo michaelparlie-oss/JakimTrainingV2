@@ -4,7 +4,7 @@
   "timezone": "Asia/Jakarta",
   "units": "metric",
   "created": "2026-11-09",
-  "version": 1,
+  "version": 2,
   "goal_race": {
    "name": "JAKIM full marathon (Jakarta International Marathon)",
    "date": "2027-06-13",
@@ -197,7 +197,8 @@
     "on_track": "avg HR < 165 on MP part",
     "action": "Race at the pace that kept HR < 165"
    }
-  ]
+  ],
+  "updated": "2026-11-11"
  },
  "zone_sets": {
   "v1": {

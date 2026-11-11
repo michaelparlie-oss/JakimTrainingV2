@@ -33,8 +33,24 @@ export async function seedPlan(db: DB, plan: Plan = loadPlan(), hash = planHash(
   return { sessions: plan.sessions.length, weeks: plan.weeks.length };
 }
 
-export async function ensureSeeded(db: DB): Promise<void> {
-  const hash = planHash();
+/**
+ * Seeds the plan when its hash changes. When an existing plan was replaced (a new plan JSON was
+ * deployed), stored matches and scores were computed against the old sessions, so re-derive them
+ * now; otherwise a run keeps its old analysis (e.g. 3×2 km reps after the session became 2×3 km)
+ * until the next sync or log entry. Returns true when the plan was (re)seeded.
+ */
+export async function ensureSeeded(db: DB, plan: Plan = loadPlan(), hash = planHash()): Promise<boolean> {
   const row = await db.select().from(s.setting).where(eq(s.setting.key, "plan_hash")).get();
-  if (!row || JSON.parse(row.value_json) !== hash) await seedPlan(db, loadPlan(), hash);
+  if (row && JSON.parse(row.value_json) === hash) return false;
+  await seedPlan(db, plan, hash);
+  if (row) {
+    try {
+      // Dynamic import: recompute pulls in the server data layer, which must not load at DB-module init.
+      const { recompute } = await import("@/lib/server/recompute");
+      await recompute(db);
+    } catch (e) {
+      console.error("[seed] plan updated but re-scoring failed; the next sync will retry:", e instanceof Error ? e.message : e);
+    }
+  }
+  return true;
 }
