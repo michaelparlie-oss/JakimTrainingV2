@@ -3,7 +3,7 @@ import { distanceScore, scoreRun } from "@/lib/match/score";
 import { repsFromLaps, repsFromStreams } from "@/lib/match/reps";
 import { act, actFromStreams, lap, session, streamsFrom, zonesV1 } from "./helpers";
 
-const quality = session("2026-11-11-AM-run"); // 2 km E, 3×2 km HMP / 2 min REC, 1.1 km E
+const quality = session("2026-11-11-AM-run"); // 2 km E, 2×3 km HMP / 3 min REC, 1.2 km E
 
 describe("distance score", () => {
   it("100 between 0.95 and 1.10, 0 at 0.5 and 1.5", () => {
@@ -18,26 +18,26 @@ describe("distance score", () => {
 
 describe("rep detection (§7.3)", () => {
   it("laps first: one lap per step, warm-up lap is not mistaken for a rep", () => {
-    const laps = [lap(2000, 500, 140), lap(2000, 448, 168), lap(300, 560, 150), lap(2000, 440, 172), lap(300, 560, 150), lap(2000, 452, 174), lap(1100, 510, 150)];
+    const laps = [lap(2000, 500, 140), lap(3000, 448, 168), lap(350, 560, 150), lap(3000, 440, 172), lap(1200, 510, 150)];
     const reps = repsFromLaps(quality.segments, laps, zonesV1)!;
-    expect(reps.map((r) => Math.round(r.pace_s_per_km!))).toEqual([448, 440, 452]);
-    expect(reps.map((r) => r.in_range)).toEqual([true, true, true]); // 440 is within the ±5 s tolerance
+    expect(reps.map((r) => Math.round(r.pace_s_per_km!))).toEqual([448, 440]);
+    expect(reps.map((r) => r.in_range)).toEqual([true, true]); // 440 is within the ±5 s tolerance
   });
 
-  it("falls back to streams: fastest non-overlapping 2 km windows after the warm-up", () => {
-    const st = streamsFrom([[2000, 500, 140], [2000, 450, 168], [300, 570, 150], [2000, 435, 171], [300, 570, 150], [2000, 433, 172], [1100, 510, 150]]);
+  it("falls back to streams: fastest non-overlapping 3 km windows after the warm-up", () => {
+    const st = streamsFrom([[2000, 500, 140], [3000, 450, 168], [350, 570, 150], [3000, 435, 171], [1200, 510, 150]]);
     const reps = repsFromStreams(quality.segments, st, zonesV1)!;
-    expect(reps).toHaveLength(3);
-    expect(reps.map((r) => Math.round(r.pace_s_per_km!))).toEqual([450, 435, 433]);
+    expect(reps).toHaveLength(2);
+    expect(reps.map((r) => Math.round(r.pace_s_per_km!))).toEqual([450, 435]);
   });
 
   it("verdict names fast reps", () => {
-    const st = streamsFrom([[2000, 500, 140], [2000, 450, 168], [300, 570, 150], [2000, 433, 171], [300, 570, 150], [2000, 433, 172], [1100, 510, 150]]);
+    const st = streamsFrom([[2000, 500, 140], [3000, 450, 168], [350, 570, 150], [3000, 433, 171], [1200, 510, 150]]);
     const s = scoreRun(quality, actFromStreams("2026-11-11", st), zonesV1);
     expect(s.details.reps.method).toBe("streams");
-    expect(s.pace_score).toBeCloseTo(100 / 3);
-    expect(s.verdict).toBe("Reps 2 and 3 were 12 s/km faster than target; slow down next time.");
-    expect(s.overall_score).toBeCloseTo(0.3 * 100 + 0.7 * (100 / 3));
+    expect(s.pace_score).toBeCloseTo(50);
+    expect(s.verdict).toBe("Rep 2 was 12 s/km faster than target; slow down next time.");
+    expect(s.overall_score).toBeCloseTo(0.3 * 100 + 0.7 * 50);
   });
 
   it("no laps or streams → manual rep check, distance still scored", () => {

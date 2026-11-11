@@ -2351,7 +2351,7 @@
   {
    "category": "run",
    "kind": "quality",
-   "title": "Astra pace: 3×2 km @ Astra pace / 2 min jog",
+   "title": "Astra pace: 2×3 km @ Astra pace / 3 min jog",
    "distance_km": 9.5,
    "est_duration_min": 77,
    "segments": [
@@ -2365,21 +2365,21 @@
     {
      "kind": "work",
      "zone": "HMP",
-     "repeat": 3,
-     "distance_km": 2,
+     "repeat": 2,
+     "distance_km": 3,
      "recovery": {
       "zone": "REC",
-      "duration_s": 120
+      "duration_s": 180
      }
     },
     {
      "kind": "cooldown",
      "zone": "E",
      "repeat": 1,
-     "distance_km": 1.1
+     "distance_km": 1.2
     }
    ],
-   "summary": "Astra pace: 3×2 km @ Astra pace / 2 min jog",
+   "summary": "Astra pace: 2×3 km @ Astra pace / 3 min jog",
    "rpe": "6–8",
    "date": "2026-11-11",
    "weekday": "Wed",

@@ -105,12 +105,12 @@ Load it at startup. Validate it with Zod and import it into SQLite with an idemp
   "week": "A1", "phase": "Astra block", "deload_week": false, "zone_set": "v1",
   "category": "run",               // run | strength | martial_arts | rest
   "kind": "quality",               // easy | long | quality | test | race   (runs only)
-  "title": "Astra pace: 3×2 km @ Astra pace / 2 min jog",
+  "title": "Astra pace: 2×3 km @ Astra pace / 3 min jog",
   "distance_km": 9.5, "est_duration_min": 77, "rpe": "6–8",
   "segments": [
     {"kind": "warmup",  "zone": "E",   "repeat": 1, "distance_km": 2, "note": "Then 5 min drills…"},
-    {"kind": "work",    "zone": "HMP", "repeat": 3, "distance_km": 2, "recovery": {"zone": "REC", "duration_s": 120}},
-    {"kind": "cooldown","zone": "E",   "repeat": 1, "distance_km": 1.1}
+    {"kind": "work",    "zone": "HMP", "repeat": 2, "distance_km": 3, "recovery": {"zone": "REC", "duration_s": 180}},
+    {"kind": "cooldown","zone": "E",   "repeat": 1, "distance_km": 1.2}
   ],
   "summary": "…",
   "optional": false,               // true for optional shake-outs and martial arts
@@ -283,7 +283,7 @@ Copy rules: no jargon without a tap-to-explain. Always show pace as `m:ss /km`, 
 ## 11. Milestones and acceptance criteria
 
 **M1. Plan viewer.** Seed from JSON; Today, Week, Plan, Session detail and Library work with no Strava.
-- On 2026-11-11, Today shows "Astra pace: 3×2 km…" with HMP 7:25–7:35 and HR 163–175, plus the "Strength B – Astra block (short)" card with 5 exercises.
+- On 2026-11-11, Today shows "Astra pace: 2×3 km @ Astra pace / 3 min jog" with HMP 7:25–7:35 and HR 163–175, plus the "Strength B – Astra block (short)" card with 5 exercises.
 - On 2027-01-04 (deload week B4), Strength A shows halved sets (e.g. goblet squat 2 × 10).
 - Weekly planned km equals `weeks[].planned_run_km` for all 31 weeks.
 
